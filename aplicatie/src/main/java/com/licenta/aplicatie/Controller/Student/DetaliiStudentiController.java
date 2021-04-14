@@ -53,4 +53,55 @@ public class DetaliiStudentiController {
 
         }
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/specializare={specializare}/grupa={grupa}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getStudentsBySpecializareAndGrupa(@PathVariable("specializare") String specializare,@PathVariable("grupa") String grupa) {
+        try {
+            List<DetaliiStudent> detaliiStudents = detaliiStudentService.findStudentsBySpecializareAndGrupa(specializare,grupa);
+            return new ResponseEntity<>(detaliiStudents, HttpStatus.OK);
+
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/an={an}/specializare={specializare}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getStudentsBySpecializareAndAn(@PathVariable("specializare") String specializare,@PathVariable("an") int an) {
+        try {
+            List<DetaliiStudent> detaliiStudents = detaliiStudentService.findStudentsBySpecializareAndAn(specializare,an);
+            return new ResponseEntity<>(detaliiStudents, HttpStatus.OK);
+
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/an={an}/grupa={grupa}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getStudentsByAnAndGrupa(@PathVariable("an") int an,@PathVariable("grupa") String grupa) {
+        try {
+            List<DetaliiStudent> detaliiStudents = detaliiStudentService.findStudentsByAnAndGrupa(an,grupa);
+            return new ResponseEntity<>(detaliiStudents, HttpStatus.OK);
+
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+
+        }
+    }
+    @CrossOrigin
+    @RequestMapping(value = "/an={an}/grupa={grupa}/specializare={specializare}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getStudentsByAll(@PathVariable("an") String an,@PathVariable("grupa") String grupa,@PathVariable("specializare") String specializare) {
+        try {
+            List<DetaliiStudent> detaliiStudents = detaliiStudentService.findStudentsByAll(Integer.parseInt(an),grupa,specializare);
+            return new ResponseEntity<>(detaliiStudents, HttpStatus.OK);
+
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+
+        }
+    }
 }

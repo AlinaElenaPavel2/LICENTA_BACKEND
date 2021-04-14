@@ -27,6 +27,19 @@ public class Profesor {
     @Column(name = "email", nullable = false)
     String email;
 
-    @Column(name = "functie", nullable = false)
+    @Column(name = "functia", nullable = false)
     String functie;
+
+    public String getFirstName()
+    {
+        String[] arr=this.nume.split(" ");
+        return arr[1];
+    }
+
+
+    public String getLastName()
+    {
+        String[] arr=this.nume.split(" ");
+        return arr[0];
+    }
 }

@@ -24,14 +24,19 @@ public interface DetaliiStudentRepository extends JpaRepository<DetaliiStudent,I
     List<Optional<DetaliiStudent>> findStudentsBySpecializare(String specializare);
 
     @Transactional
-    @Query(value ="SELECT id_student FROM Student  WHERE grupa = :grupa AND specializare = :specializare", nativeQuery = true)
+    @Query(value ="SELECT * FROM detalii_student  WHERE grupa = :grupa AND specializare = :specializare", nativeQuery = true)
     List<Optional<DetaliiStudent>> findStudentsByGrupaAndSpecializare(String grupa,String specializare);
 
     @Transactional
-    @Query(value ="SELECT * FROM Student  WHERE an = :an AND grupa = :grupa", nativeQuery = true)
+    @Query(value ="SELECT * FROM detalii_student  WHERE an = :an AND grupa = :grupa", nativeQuery = true)
     List<Optional<DetaliiStudent>> findStudentsByYearAndGrupa(int an, String grupa);
 
     @Transactional
-    @Query(value ="SELECT * FROM Student  WHERE an = :an AND specializare = :specializare", nativeQuery = true)
+    @Query(value ="SELECT * FROM detalii_student  WHERE an = :an AND specializare = :specializare", nativeQuery = true)
     List<Optional<DetaliiStudent>> findStudentsByYearAndSpecializare(int an, String specializare);
+
+    @Transactional
+    @Query(value ="SELECT * FROM detalii_student  WHERE an = :an AND grupa = :grupa AND specializare = :specializare", nativeQuery = true)
+    List<Optional<DetaliiStudent>> findStudentsByAllCriterias(int an,String grupa, String specializare);
+
 }

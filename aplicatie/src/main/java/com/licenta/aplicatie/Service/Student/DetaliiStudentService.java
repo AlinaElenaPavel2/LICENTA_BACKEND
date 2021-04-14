@@ -68,4 +68,68 @@ public class DetaliiStudentService {
             throw new Exception("This specialization does not exist");
         }
     }
+
+    public List<DetaliiStudent> findStudentsBySpecializareAndGrupa(String specializare,String grupa) throws Exception {
+        List<DetaliiStudent> detaliiStudents = new ArrayList<>();
+        List<Optional<DetaliiStudent>> studentsFound = detaliiStudentRepository.findStudentsByGrupaAndSpecializare(grupa,specializare);
+        for (Optional<DetaliiStudent> student : studentsFound
+        ) {
+            if (student.isPresent()) {
+                detaliiStudents.add(student.get());
+            }
+        }
+        if (detaliiStudents.size() > 0) {
+            return detaliiStudents;
+        } else {
+            throw new Exception("This specialization does not exist");
+        }
+    }
+
+    public List<DetaliiStudent> findStudentsBySpecializareAndAn(String specializare,int an) throws Exception {
+        List<DetaliiStudent> detaliiStudents = new ArrayList<>();
+        List<Optional<DetaliiStudent>> studentsFound = detaliiStudentRepository.findStudentsByYearAndSpecializare(an,specializare);
+        for (Optional<DetaliiStudent> student : studentsFound
+        ) {
+            if (student.isPresent()) {
+                detaliiStudents.add(student.get());
+            }
+        }
+        if (detaliiStudents.size() > 0) {
+            return detaliiStudents;
+        } else {
+            throw new Exception("This specialization does not exist");
+        }
+    }
+
+    public List<DetaliiStudent> findStudentsByAnAndGrupa(int an,String grupa) throws Exception {
+        List<DetaliiStudent> detaliiStudents = new ArrayList<>();
+        List<Optional<DetaliiStudent>> studentsFound = detaliiStudentRepository.findStudentsByYearAndGrupa(an,grupa);
+        for (Optional<DetaliiStudent> student : studentsFound
+        ) {
+            if (student.isPresent()) {
+                detaliiStudents.add(student.get());
+            }
+        }
+        if (detaliiStudents.size() > 0) {
+            return detaliiStudents;
+        } else {
+            throw new Exception("This specialization does not exist");
+        }
+    }
+
+    public List<DetaliiStudent> findStudentsByAll(int an,String grupa,String specializare) throws Exception {
+        List<DetaliiStudent> detaliiStudents = new ArrayList<>();
+        List<Optional<DetaliiStudent>> studentsFound = detaliiStudentRepository.findStudentsByAllCriterias(an,grupa,specializare);
+        for (Optional<DetaliiStudent> student : studentsFound
+        ) {
+            if (student.isPresent()) {
+                detaliiStudents.add(student.get());
+            }
+        }
+        if (detaliiStudents.size() > 0) {
+            return detaliiStudents;
+        } else {
+            throw new Exception("This specialization does not exist");
+        }
+    }
 }
