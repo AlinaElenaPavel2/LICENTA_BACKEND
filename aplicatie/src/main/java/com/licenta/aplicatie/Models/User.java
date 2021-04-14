@@ -1,9 +1,6 @@
 package com.licenta.aplicatie.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +12,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
+@Data
 @Table(name="User")
 public class User {
     @Id

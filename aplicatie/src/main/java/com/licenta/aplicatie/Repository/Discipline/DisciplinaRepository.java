@@ -1,6 +1,6 @@
-package com.licenta.aplicatie.Repository;
+package com.licenta.aplicatie.Repository.Discipline;
 
-import com.licenta.aplicatie.Models.Disciplina;
+import com.licenta.aplicatie.Models.Discipline.Disciplina;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

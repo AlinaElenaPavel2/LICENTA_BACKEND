@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61256e47-d211-4182-a1c7-f14b6115c92c" name="Default Changelist" comment="" />
+    <list default="true" id="61256e47-d211-4182-a1c7-f14b6115c92c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/Evaluare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/Laborator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Situatie_Scolara/Note.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Situatie_Scolara/NoteAniPrecedenti.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Situatie_Scolara/Prezenta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Situatie_Scolara/NoteAniPrecedentiRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Situatie_Scolara/PrezentaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_29_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_27_0_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_4_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/DetaliiStudent.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Studenti/DetaliiStudent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Disciplina.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/Disciplina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/DisciplineAni.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/DisciplineAni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Evaluare.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Laborator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Note.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/NoteAniPrecedenti.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Prezenta.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Studenti/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/DetaliiStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/DetaliiStudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/DisciplinaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/DisciplinaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/DisciplineAniRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/DisciplineAniRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/EvaluareRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/EvaluareRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/LaboratorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/LaboratorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/NoteAniPrecedentiRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/NoteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Situatie_Scolara/NoteRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/PrezentaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/aplicatie/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,74 +56,94 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="68" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/StudentRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/ProfesorRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/PrezentaRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/NoteAniPrecedentiRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.20231214">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/DetaliiStudentRepository.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="182">
+                  <caret line="23" column="34" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="34" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Student/DetaliiStudentiController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="47" column="96" selection-start-line="47" selection-start-column="96" selection-end-line="47" selection-end-column="96" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Student/StudenController.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="128">
+                  <caret line="87" column="47" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Student/StudentService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="341">
+                  <caret line="100" selection-start-line="100" selection-end-line="100" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/DetaliiStudentRepository.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="350">
+                  <caret line="23" column="34" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="34" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Student/DetaliiStudentService.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="236">
+                  <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -91,24 +153,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/aplicatie/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/student.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Student.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/user.java" />
-        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/User.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/profesor.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Profesor.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/detaliiStudent.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/DetaliiStudent.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/disciplina.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/disciplineAni.java" />
-        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/DisciplineAni.java" />
-        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/StudentRepository.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/ProfesorRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/NoteRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/LaboratorRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/EvaluareRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/DisciplinaRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/DetaliiStudentRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/DisciplineAniRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/UserService.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/UserController.java" />
+        <option value="$PROJECT_DIR$/aplicatie/pom.xml" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/User.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/DisciplineAni.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Note.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Evaluare.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Laborator.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/NoteAniPrecedenti.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Prezenta.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/PrezentaRepository.java" />
         <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/NoteAniPrecedentiRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/StudenController.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/StudentService.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/DetaliiStudent.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/DetaliiStudentService.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/DetaliiStudentRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Studenti/Student.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/StudentRepository.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Student/StudentService.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Student/StudenController.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Student/DetaliiStudentiController.java" />
+        <option value="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Student/DetaliiStudentService.java" />
       </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="MavenProjectNavigator">
@@ -117,6 +211,11 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="aplicatie" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="aplicatie" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
       <select />
@@ -199,7 +298,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="aplicatie" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LICENTA_BACKEND" type="b2602c69:ProjectViewProjectNode" />
@@ -209,7 +308,29 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="aplicatie" type="462c0819:PsiDirectoryNode" />
-              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Student" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LICENTA_BACKEND" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LICENTA_BACKEND" type="462c0819:PsiDirectoryNode" />
+              <item name="aplicatie" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="aplicatie" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LICENTA_BACKEND" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LICENTA_BACKEND" type="462c0819:PsiDirectoryNode" />
+              <item name="aplicatie" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="aplicatie" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
+              <item name="Student" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="LICENTA_BACKEND" type="b2602c69:ProjectViewProjectNode" />
@@ -228,8 +349,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/aplicatie/pom.xml" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\LICENTA\BACKEND\LICENTA_BACKEND\aplicatie\src\main\java\com\licenta\aplicatie\Models\Situatie_Scolara" />
+      <recent name="D:\LICENTA\BACKEND\LICENTA_BACKEND\aplicatie\src\main\java\com\licenta\aplicatie\Repository\Situatie_Scolara" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -242,6 +370,26 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="AplicatieApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.licenta.aplicatie.AplicatieApplication" />
+      <module name="aplicatie" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.licenta.aplicatie.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AplicatieApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -271,19 +419,20 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1883378" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="DB Execution Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.58040935" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" weight="0.32894737" />
       <window_info anchor="bottom" id="Console" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.39327484" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.42105263" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" weight="0.3297587" />
+      <window_info anchor="right" id="Maven" weight="0.11126006" />
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Schema  Explorer" side_tool="true" />
@@ -293,54 +442,83 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="DB Browser" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Project Explorer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Job Explorer" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="8" visible="true" weight="0.1883378" />
+      <window_info id="Structure" order="9" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="DB Execution Console" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.58040935" />
+      <window_info anchor="bottom" id="Docker" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Messages" order="5" weight="0.32894737" />
+      <window_info anchor="bottom" id="Console" order="6" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.39327484" />
+      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.4093567" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="right" id="Maven" order="0" weight="0.11126006" />
+      <window_info anchor="right" id="Palette" order="1" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Schema  Explorer" order="3" side_tool="true" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/ProfesorRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/aplicatie/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/AplicatieApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Prezenta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Note.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/NoteAniPrecedenti.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+        <state relative-caret-position="84">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aplicatie/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="57" selection-start-line="1" selection-start-column="57" selection-end-line="1" selection-end-column="57" />
+        <state relative-caret-position="56">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/User.java">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Situatie_Scolara/NoteAniPrecedenti.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        <state>
+          <caret selection-end-line="4" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Situatie_Scolara/Prezenta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="4" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -355,104 +533,269 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/DetaliiStudent.java">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Situatie_Scolara/PrezentaRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        <state relative-caret-position="142">
+          <caret line="7" column="70" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Situatie_Scolara/NoteAniPrecedentiRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-90">
+          <caret selection-end-line="9" />
+          <folding>
+            <element signature="e#0#339#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Evaluare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Disciplina.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="12" selection-start-line="12" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/DisciplineAni.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Laborator.java">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/DisciplinaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/DisciplineAniRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/EvaluareRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Discipline/LaboratorRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Situatie_Scolara/NoteRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Situatie_Scolara/Note.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/Disciplina.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/DisciplineAni.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/Evaluare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Discipline/Laborator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Situatie_Scolara.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="68" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="68" />
+        <state relative-caret-position="308">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/StudentRepository.java">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        <state relative-caret-position="215">
+          <caret line="17" column="65" lean-forward="true" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/ProfesorRepository.java">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Studenti/DetaliiStudent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        <state relative-caret-position="-56">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/PrezentaRepository.java">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/AplicatieApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
+        <state relative-caret-position="140">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#315#316#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Studenti/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/NoteAniPrecedentiRepository.java">
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/StudentRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="86">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/Student/DetaliiStudentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Student/StudentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Student/StudenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="87" column="47" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Student/DetaliiStudentiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="47" column="96" selection-start-line="47" selection-start-column="96" selection-end-line="47" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Student/DetaliiStudentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

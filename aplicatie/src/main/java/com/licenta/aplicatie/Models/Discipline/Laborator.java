@@ -1,4 +1,4 @@
-package com.licenta.aplicatie.Models;
+package com.licenta.aplicatie.Models.Discipline;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,18 +15,15 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name="Detalii_student")
-public class DetaliiStudent {
+@Table(name="Laborator")
+public class Laborator {
     @Id
-    @Column(name="id_student",nullable = false)
-    int id_student;
+    @Column(name="id_disciplina",nullable = false)
+    int id_disciplina;
 
-    @Column(name="an",nullable = false)
-    int an;
+    @Column(name="id_profesor",nullable = false)
+    int id_profesor;
 
     @Column(name="grupa",nullable = false)
     String grupa;
-
-    @Column(name="specializare",nullable = false)
-    String specializare;
 }

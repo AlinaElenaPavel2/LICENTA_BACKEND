@@ -1,4 +1,4 @@
-package com.licenta.aplicatie.Models;
+package com.licenta.aplicatie.Models.Studenti;
 
 import lombok.*;
 
@@ -27,4 +27,15 @@ public class Student {
     @Column(name="telefon",nullable = false)
     String telefon;
 
+    public String getFirstName()
+    {
+        String[] array=this.nume.split(" ");
+        return array[1];
+    }
+
+    public String getLastName()
+    {
+        String[] array=this.nume.split(" ");
+        return array[0];
+    }
 }

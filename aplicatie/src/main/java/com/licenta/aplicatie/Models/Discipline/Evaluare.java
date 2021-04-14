@@ -1,4 +1,4 @@
-package com.licenta.aplicatie.Models;
+package com.licenta.aplicatie.Models.Discipline;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,18 +15,18 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name="Disciplina")
-public class Disciplina {
+@Table(name="Evaluare")
+public class Evaluare {
     @Id
     @Column(name="id_disciplina",nullable = false)
-    int id;
+    int id_disciplina;
 
-    @Column(name="id_titular",nullable = false)
-    int id_titular;
+    @Column(name="pondere_lab",nullable = false)
+    int pondere_lab;
 
-    @Column(name="titlu",nullable = false)
-    String titlu;
+    @Column(name="pondere_examen",nullable = false)
+    int pondere_examen;
 
-    @Column(name="credite",nullable = false)
-    int credite;
+    @Column(name="pondere_partial",nullable = false)
+    int pondere_partial;
 }
