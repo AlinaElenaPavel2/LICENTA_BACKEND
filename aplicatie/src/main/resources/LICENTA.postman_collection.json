@@ -1,0 +1,971 @@
+{
+	"info": {
+		"_postman_id": "a4ec70a3-9042-41d5-a9bb-15b1895034e2",
+		"name": "LICENTA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"mihai.popa@student.tuiasi.ro\",\r\n    \"password\": \"jjn2ee\"\r\n}\r\n\r\n   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "getStudentByFullName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/fullname=Popa Mihai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"fullname=Popa Mihai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentByFirstName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/firstname=Mihai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"firstname=Mihai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentByLastName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/lastname=Andreea",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"lastname=Andreea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentByEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/email=mihai.popa@student.tuiasi.ro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"email=mihai.popa@student.tuiasi.ro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentIdByEmail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/student/email=mihai.popa@student.tuiasi.ro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"student",
+								"email=mihai.popa@student.tuiasi.ro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentIdByName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/student/fullName=Popa Mihai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"student",
+								"fullName=Popa Mihai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Detalii Studenti",
+			"item": [
+				{
+					"name": "student by an",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/an=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"an=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student by grupa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/grupa=1307",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"grupa=1307"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specializare",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/specializare=Calculatoare si Tehnologia Informatiei",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"specializare=Calculatoare si Tehnologia Informatiei"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "an si grupa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/an=1/grupa=1106",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"an=1",
+								"grupa=1106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "an si specializare",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/an=1/specializare=Ingineria sistemelor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"an=1",
+								"specializare=Ingineria sistemelor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grupa si specializare",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/specializare=Calculatoare si Tehnologia Informatiei/grupa=1307",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"specializare=Calculatoare si Tehnologia Informatiei",
+								"grupa=1307"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "an,grupa si specializare",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/students/an=1/grupa=1106/specializare=Calculatoare si Tehnologia Informatiei",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"students",
+								"an=1",
+								"grupa=1106",
+								"specializare=Calculatoare si Tehnologia Informatiei"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profesor",
+			"item": [
+				{
+					"name": "by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/teachers/email=marian.popescu@profesor.tuiasi.ro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"teachers",
+								"email=marian.popescu@profesor.tuiasi.ro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/teachers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"teachers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/teachers/fullname=Ifrim Mihaela",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"teachers",
+								"fullname=Ifrim Mihaela"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "first name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/teachers/firstname=Mihaela",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"teachers",
+								"firstname=Mihaela"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Disciplina",
+			"item": [
+				{
+					"name": "by titlu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/discipline/titlu=Electrotehnica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"discipline",
+								"titlu=Electrotehnica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "credite by titlu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/discipline/titlu=Electrotehnica/credite",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"discipline",
+								"titlu=Electrotehnica",
+								"credite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "id by titlu",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/discipline/titlu=Electrotehnica/id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"discipline",
+								"titlu=Electrotehnica",
+								"id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by titular name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/discipline/titular/nume=Popescu Marian",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"discipline",
+								"titular",
+								"nume=Popescu Marian"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/discipline/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"discipline",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by abreviere",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/discipline/abreviere=MS",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"discipline",
+								"abreviere=MS"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Programa Scolara",
+			"item": [
+				{
+					"name": "by an",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/programaScolara/programStudii=licenta/an=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"programaScolara",
+								"programStudii=licenta",
+								"an=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specializare",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/programaScolara/programStudii=licenta/specializare=Ingineria sistemelor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"programaScolara",
+								"programStudii=licenta",
+								"specializare=Ingineria sistemelor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specializae+an",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/programStudii=licenta/programaScolara/specializare=Ingineria sistemelor/an=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"programStudii=licenta",
+								"programaScolara",
+								"specializare=Ingineria sistemelor",
+								"an=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "an + semestru",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/programaScolara/programStudii=licenta/an=1/semestru=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"programaScolara",
+								"programStudii=licenta",
+								"an=1",
+								"semestru=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specializae+an + semestru",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/programaScolara/programStudii=licenta/specializare=Ingineria sistemelor/an=1/semestru=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"programaScolara",
+								"programStudii=licenta",
+								"specializare=Ingineria sistemelor",
+								"an=1",
+								"semestru=1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prezenta",
+			"item": [
+				{
+					"name": "by disciplina",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/prezenta/disciplina=Structuri de date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"prezenta",
+								"disciplina=Structuri de date"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/prezenta/student=Popa Mihai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"prezenta",
+								"student=Popa Mihai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "disciplina - student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/prezenta/disciplina=Electrotehnica/student=Popa Mihai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"prezenta",
+								"disciplina=Electrotehnica",
+								"student=Popa Mihai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluare",
+			"item": [
+				{
+					"name": "get procents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/evaluare/disciplina=Baze de date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"evaluare",
+								"disciplina=Baze de date"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Catalog",
+			"item": [
+				{
+					"name": "get final mark",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/catalog/disciplina=Electrotehnica/student=Popa Mihai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"catalog",
+								"disciplina=Electrotehnica",
+								"student=Popa Mihai"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get marks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/licenta/catalog/disciplina=Electrotehnica/student=Popa Mihai/note",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"licenta",
+								"catalog",
+								"disciplina=Electrotehnica",
+								"student=Popa Mihai",
+								"note"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Situatie scolara",
+			"item": [
+				{
+					"name": "get medie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/licenta/situatieScolara/disciplina=Algebra/student=Popa Mihai/medie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"licenta",
+								"situatieScolara",
+								"disciplina=Algebra",
+								"student=Popa Mihai",
+								"medie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get medii",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/licenta/situatieScolara/student=Popa Mihai/medii",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"licenta",
+								"situatieScolara",
+								"student=Popa Mihai",
+								"medii"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get situatie scolara",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/licenta/situatieScolara/student=Popa Mihai/medii/discipline",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"licenta",
+								"situatieScolara",
+								"student=Popa Mihai",
+								"medii",
+								"discipline"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

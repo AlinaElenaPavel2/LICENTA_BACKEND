@@ -22,14 +22,14 @@ public class Catalog {
     private int id_disciplina;
 
     @Column(name="examen",nullable = false)
-    private int examen;
+    private Integer examen;
 
     @Column(name="laborator",nullable = false)
-    private int laborator;
+    private Integer laborator;
 
     @Column(name="partial",nullable = false)
-    private int partial;
+    private Integer partial;
 
     @Column(name="proiect",nullable = false)
-    private int proiect;
+    private Integer proiect;
 }
