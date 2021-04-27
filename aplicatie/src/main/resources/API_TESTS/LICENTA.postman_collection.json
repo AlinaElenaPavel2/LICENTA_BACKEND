@@ -1201,6 +1201,52 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "File upload",
+			"item": [
+				{
+					"name": "uploadFile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Pavel_Alina_Elena/Documents/Arbori binari - operatii.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/uploadFile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"uploadFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
