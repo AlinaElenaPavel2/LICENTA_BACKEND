@@ -12,23 +12,23 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="Student")
+@Table(name = "Student")
 public class Student {
     @Id
-    @Column(name="id_student",nullable = false)
+    @Column(name = "id_student", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_student;
 
-    @Column(name="nume",nullable = false)
+    @Column(name = "nume", nullable = false)
     private String nume;
 
-    @Column(name="email",nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name="telefon",nullable = false)
+    @Column(name = "telefon", nullable = false)
     private String telefon;
 
-    @Column(name="an",nullable = false)
+    @Column(name = "an", nullable = false)
     private int an;
 
     @Column(name = "specializare", nullable = false)
@@ -40,18 +40,30 @@ public class Student {
     @Column(name = "program_studiu", nullable = false)
     private String program_studiu;
 
-    public String getFirstName()
-    {
-        String[] array=this.nume.split(" ");
-        if(array.length>2)
-        return array[1].concat(" "+array[2]);
+    public String getFirstName() {
+        String[] array = this.nume.split(" ");
+        if (array.length > 2)
+            return array[1].concat(" " + array[2]);
         else
             return array[1];
     }
 
-    public String getLastName()
-    {
-        String[] array=this.nume.split(" ");
+    public String getLastName() {
+        String[] array = this.nume.split(" ");
         return array[0];
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id_student=" + id_student +
+                ", nume='" + nume + '\'' +
+                ", email='" + email + '\'' +
+                ", telefon='" + telefon + '\'' +
+                ", an=" + an +
+                ", specializare='" + specializare + '\'' +
+                ", grupa='" + grupa + '\'' +
+                ", program_studiu='" + program_studiu + '\'' +
+                '}';
     }
 }

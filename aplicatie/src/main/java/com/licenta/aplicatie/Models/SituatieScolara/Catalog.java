@@ -12,24 +12,36 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="Catalog")
+@Table(name = "Catalog")
 public class Catalog {
     @Id
-    @Column(name="id_student",nullable = false)
+    @Column(name = "id_student", nullable = false)
     private int id_student;
 
-    @Column(name="id_disciplina",nullable = false)
+    @Column(name = "id_disciplina", nullable = false)
     private int id_disciplina;
 
-    @Column(name="examen",nullable = false)
+    @Column(name = "examen", nullable = false)
     private Integer examen;
 
-    @Column(name="laborator",nullable = false)
+    @Column(name = "laborator", nullable = false)
     private Integer laborator;
 
-    @Column(name="partial",nullable = false)
+    @Column(name = "partial", nullable = false)
     private Integer partial;
 
-    @Column(name="proiect",nullable = false)
+    @Column(name = "proiect", nullable = false)
     private Integer proiect;
+
+    @Override
+    public String toString() {
+        return "Catalog{" +
+                "id_student=" + id_student +
+                ", id_disciplina=" + id_disciplina +
+                ", examen=" + examen +
+                ", laborator=" + laborator +
+                ", partial=" + partial +
+                ", proiect=" + proiect +
+                '}';
+    }
 }

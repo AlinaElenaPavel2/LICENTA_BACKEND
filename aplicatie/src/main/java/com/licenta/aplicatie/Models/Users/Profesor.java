@@ -34,7 +34,7 @@ public class Profesor {
     public String getFirstName() {
         String[] arr = this.nume.split(" ");
         if (arr.length > 2) {
-           return arr[1].concat(" "+arr[2]) ;
+            return arr[1].concat(" " + arr[2]);
         } else {
             return arr[1];
         }
@@ -44,5 +44,16 @@ public class Profesor {
     public String getLastName() {
         String[] arr = this.nume.split(" ");
         return arr[0];
+    }
+
+    @Override
+    public String toString() {
+        return "Profesor{" +
+                "id_profesor=" + id_profesor +
+                ", nume='" + nume + '\'' +
+                ", email='" + email + '\'' +
+                ", telefon='" + telefon + '\'' +
+                ", functia='" + functia + '\'' +
+                '}';
     }
 }

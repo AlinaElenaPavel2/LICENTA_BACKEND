@@ -12,15 +12,24 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="situatie_scolara")
+@Table(name = "situatie_scolara")
 public class SituatieScolara {
     @Id
-    @Column(name="id_student",nullable = false)
+    @Column(name = "id_student", nullable = false)
     private int id_student;
 
-    @Column(name="id_disciplina",nullable = false)
+    @Column(name = "id_disciplina", nullable = false)
     private int id_disciplina;
 
-    @Column(name="medie",nullable = false)
+    @Column(name = "medie", nullable = false)
     private int medie;
+
+    @Override
+    public String toString() {
+        return "SituatieScolara{" +
+                "id_student=" + id_student +
+                ", id_disciplina=" + id_disciplina +
+                ", medie=" + medie +
+                '}';
+    }
 }

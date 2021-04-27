@@ -16,22 +16,32 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name="Prezenta")
+@Table(name = "Prezenta")
 public class Prezenta {
     @Id
-    @Column(name="id_disciplina",nullable = false)
+    @Column(name = "id_disciplina", nullable = false)
     private int id_disciplina;
 
-    @Column(name="id_student",nullable = false)
+    @Column(name = "id_student", nullable = false)
     private int id_student;
 
-    @Column(name="laborator",nullable = false)
+    @Column(name = "laborator", nullable = false)
     private int laborator;
 
-    @Column(name="data",nullable = false)
+    @Column(name = "data", nullable = false)
     private Date data;
 
-    @Column(name="prezenta",nullable = false)
+    @Column(name = "prezenta", nullable = false)
     private String prezenta;
 
+    @Override
+    public String toString() {
+        return "Prezenta{" +
+                "id_disciplina=" + id_disciplina +
+                ", id_student=" + id_student +
+                ", laborator=" + laborator +
+                ", data=" + data +
+                ", prezenta='" + prezenta + '\'' +
+                '}';
+    }
 }

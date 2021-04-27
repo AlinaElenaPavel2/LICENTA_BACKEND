@@ -1,4 +1,4 @@
-package com.licenta.aplicatie.Controller.Programa;
+package com.licenta.aplicatie.Controller.SituatiScolara;
 
 import com.licenta.aplicatie.Models.Programa.Disciplina;
 import com.licenta.aplicatie.Models.SituatieScolara.Prezenta;
@@ -29,7 +29,6 @@ public class PrezentaController {
     public ResponseEntity<?> getPrezentaByDisciplina(@PathVariable("disciplina") String disciplina) {
         try {
         Disciplina dis=disciplinaService.getDisciplinaByTitlu(disciplina);
-        System.out.println(dis.getId_disciplina());
         List<Prezenta> prezentaList=prezentaService.getPrezente(dis.getId_disciplina());
             return new ResponseEntity<>(prezentaList,HttpStatus.OK);
         } catch (Exception ex) {

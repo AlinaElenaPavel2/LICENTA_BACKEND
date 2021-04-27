@@ -13,19 +13,28 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name="Profesor")
+@Table(name = "Eveniment")
 public class Eveniment {
     @Id
-    @Column(name="id_disciplina",nullable = false)
+    @Column(name = "id_disciplina", nullable = false)
     private int id_disciplina;
 
-    @Column(name="data",nullable = false)
+    @Column(name = "data", nullable = false)
     private Date data;
 
-    @Column(name="titlu",nullable = false)
+    @Column(name = "titlu", nullable = false)
     private String titlu;
 
-    @Column(name="descriere",nullable = false)
+    @Column(name = "descriere", nullable = false)
     private String descriere;
 
+    @Override
+    public String toString() {
+        return "Eveniment{" +
+                "id_disciplina=" + id_disciplina +
+                ", data=" + data +
+                ", titlu='" + titlu + '\'' +
+                ", descriere='" + descriere + '\'' +
+                '}';
+    }
 }
