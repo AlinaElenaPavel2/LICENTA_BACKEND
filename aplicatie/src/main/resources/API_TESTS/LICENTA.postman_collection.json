@@ -1130,6 +1130,77 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Restante",
+			"item": [
+				{
+					"name": "by disciplina",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/restante/disciplina=Programarea calculatoarelor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"restante",
+								"disciplina=Programarea calculatoarelor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/restante/student=Mircea Sergiu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"restante",
+								"student=Mircea Sergiu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/restante/data=2020-09-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"restante",
+								"data=2020-09-10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
