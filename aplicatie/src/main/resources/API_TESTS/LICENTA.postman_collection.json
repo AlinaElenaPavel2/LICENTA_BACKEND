@@ -871,12 +871,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/api/licenta/catalog/disciplina=Electrotehnica/student=Popa Mihai/note",
+							"raw": "http://localhost:8080/api/licenta/catalog/disciplina=Electrotehnica/student=Popa Mihai/note",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"api",
 								"licenta",
@@ -900,12 +900,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/api/licenta/situatieScolara/disciplina=Algebra/student=Popa Mihai/medie",
+							"raw": "http://localhost:8080/api/licenta/situatieScolara/disciplina=Algebra/student=Popa Mihai/medie",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"api",
 								"licenta",
@@ -924,12 +924,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/api/licenta/situatieScolara/student=Popa Mihai/medii",
+							"raw": "http://localhost:8080/api/licenta/situatieScolara/student=Popa Mihai/medii",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"api",
 								"licenta",
@@ -947,12 +947,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/api/licenta/situatieScolara/student=Popa Mihai/medii/discipline",
+							"raw": "http://localhost:8080/api/licenta/situatieScolara/student=Popa Mihai/medii/discipline",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"api",
 								"licenta",
@@ -960,6 +960,170 @@
 								"student=Popa Mihai",
 								"medii",
 								"discipline"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Laborator",
+			"item": [
+				{
+					"name": "get prof",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/laborator/disciplina=Programarea calculatoarelor/grupa=1106",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"laborator",
+								"disciplina=Programarea calculatoarelor",
+								"grupa=1106"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get profi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/laborator/disciplina=Programarea calculatoarelor/profesori",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"laborator",
+								"disciplina=Programarea calculatoarelor",
+								"profesori"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/laborator/disciplina=Programarea calculatoarelor/profesori/grupe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"laborator",
+								"disciplina=Programarea calculatoarelor",
+								"profesori",
+								"grupe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evenimente",
+			"item": [
+				{
+					"name": "get evenimente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/evenimente/disciplina=Programarea calculatoarelor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"evenimente",
+								"disciplina=Programarea calculatoarelor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add eveniment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"data\": \"2021-04-16\",\r\n        \"titlu\": \"TEMA_ADD\",\r\n        \"descriere\": \"TEMA_ADD descriere\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/evenimente/disciplina=Programarea calculatoarelor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"evenimente",
+								"disciplina=Programarea calculatoarelor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n\r\n        \"data\": \"2021-04-16\",\r\n        \"titlu\": \"TEMA_ADD\",\r\n        \"descriere\": \"TEMA_ADD descriere\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/evenimente/disciplina=Programarea calculatoarelor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"evenimente",
+								"disciplina=Programarea calculatoarelor"
 							]
 						}
 					},
