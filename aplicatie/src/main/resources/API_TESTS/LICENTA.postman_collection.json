@@ -1239,10 +1239,170 @@
 				},
 				{
 					"name": "Download File",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "http://localhost:8080/downloadFile/Lab10.pdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"downloadFile",
+								"Lab10.pdf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QRCode",
+			"item": [
+				{
+					"name": "generate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"id_disciplina\": 7,\r\n        \"id_student\": 10,\r\n        \"laborator\": 1,\r\n        \"data\": \"2020-03-14\",\r\n        \"prezenta\": \"prezent\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/qrCode/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"qrCode",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"id_disciplina\": 7,\r\n        \"id_student\": 10,\r\n        \"laborator\": 1,\r\n        \"data\": \"2020-03-14\",\r\n        \"prezenta\": \"prezent\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/qrCode/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"qrCode",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/qrCode/decode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"qrCode",
+								"decode"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "email text",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/sendEmail/email=alina_pavel98@yahoo.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"sendEmail",
+								"email=alina_pavel98@yahoo.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email with attachment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/sendEmail/attachment/email=alina_pavel98@yahoo.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"sendEmail",
+								"attachment",
+								"email=alina_pavel98@yahoo.com"
+							]
+						}
 					},
 					"response": []
 				}
