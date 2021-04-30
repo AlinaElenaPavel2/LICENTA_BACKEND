@@ -19,6 +19,13 @@ http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <java.version>11</java.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -79,12 +86,17 @@ http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <version>3.4.0</version>
         </dependency>
 
-
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail &ndash;&gt;-->
 <!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-mail</artifactId>-->
-<!--            <version>2.4.5</version>-->
+<!--            <groupId>com.github.kenglxn.qrgen</groupId>-->
+<!--            <artifactId>javase</artifactId>-->
+<!--            <version>2.6.0</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.google.zxing</groupId>-->
+<!--            <artifactId>zxing-parent</artifactId>-->
+<!--            <version>3.4.1</version>-->
+<!--            <type>pom</type>-->
 <!--        </dependency>-->
 
         <dependency>
