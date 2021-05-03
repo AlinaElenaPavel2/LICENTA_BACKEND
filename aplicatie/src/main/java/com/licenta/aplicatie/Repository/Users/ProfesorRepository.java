@@ -18,7 +18,7 @@ public interface ProfesorRepository  extends JpaRepository<Profesor,Integer> {
 
     @Transactional
     @Query(value ="SELECT * FROM Profesor  WHERE email = :email", nativeQuery = true)
-    Optional<List<Profesor>> findProfesorByEmail(String email);
+    Optional<Profesor> findProfesorByEmail(String email);
 
     @Transactional
     @Query(value ="SELECT * FROM Profesor  WHERE functia = :functia", nativeQuery = true)
@@ -27,4 +27,8 @@ public interface ProfesorRepository  extends JpaRepository<Profesor,Integer> {
     @Transactional
     @Query(value ="SELECT id_profesor FROM Profesor  WHERE nume = :name", nativeQuery = true)
     Optional<Integer> findProfesorIdByName(String name);
+
+    @Transactional
+    @Query(value ="SELECT id_profesor FROM Profesor  WHERE email = :email", nativeQuery = true)
+    Optional<Integer> findProfIdByEmail(String email);
 }

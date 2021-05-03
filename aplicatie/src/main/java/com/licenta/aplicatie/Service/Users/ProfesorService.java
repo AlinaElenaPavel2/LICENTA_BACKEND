@@ -25,8 +25,8 @@ public class ProfesorService {
         }
     }
 
-    public List<Profesor> getProfesorByEmail(String email) throws Exception {
-        Optional<List<Profesor>> profesor = profesorRepository.findProfesorByEmail(email);
+    public Profesor getProfesorByEmail(String email) throws Exception {
+        Optional<Profesor> profesor = profesorRepository.findProfesorByEmail(email);
         if (profesor.isPresent()) {
             return profesor.get();
         } else {
@@ -58,4 +58,24 @@ public class ProfesorService {
             throw new Exception("Profesor not found");
         }
     }
+
+    public Integer getProfesorIdByEmail(String email) throws Exception {
+        Optional<Integer> profesor = profesorRepository.findProfIdByEmail(email);
+        if (profesor.isPresent()) {
+            return profesor.get();
+        } else {
+            throw new Exception("Profesor id not found");
+        }
+    }
+
+
+    public Integer getProfesorIdByName(String nume) throws Exception {
+        Optional<Integer> profesor = profesorRepository.findProfesorIdByName(nume);
+        if (profesor.isPresent()) {
+            return profesor.get();
+        } else {
+            throw new Exception("Profesor id not found");
+        }
+    }
+
 }
