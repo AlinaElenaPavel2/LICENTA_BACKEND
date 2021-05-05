@@ -23,12 +23,12 @@ public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public void sendEmail(String emailAdress) {
+    public void sendEmail(String emailAdress,String subject,String text) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo(emailAdress);
 
-        msg.setSubject("Testing from Spring Boot");
-        msg.setText("Hello World \n Spring Boot Email");
+        msg.setSubject(subject);
+        msg.setText(text);
 
         javaMailSender.send(msg);
 
