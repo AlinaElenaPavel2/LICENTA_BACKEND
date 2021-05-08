@@ -4,6 +4,7 @@ import com.licenta.aplicatie.Service.FileStorage.FileStorageService;
 import com.licenta.aplicatie.Service.FileStorage.UploadFileResponse;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
+import com.licenta.aplicatie.Service.Users.UserService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -37,6 +38,9 @@ public class FileStorageController {
     //    private static final Logger logger = LoggerFactory.getLogger(FileStorageController.class);
     @Autowired
     private FileStorageService fileStorageService;
+
+    @Autowired
+    private UserService userService;
 
     @CrossOrigin
     @PostMapping("/uploadFile")
@@ -168,4 +172,43 @@ public class FileStorageController {
         }
     }
 
+
+    @CrossOrigin
+    @PostMapping("/uploadProfilePicture/user/role={role}/id={id}")
+    public ResponseEntity<?> uploadPicture2(@PathVariable("id") int id,@PathVariable("role") String role, @RequestBody String imgBase64) throws Exception {
+        try {
+            int user_id=userService.getUserIdByRole(id,role);
+            String pathname="aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";
+            String partSeparator = ",";
+            if (imgBase64.contains(partSeparator)) {
+                String encodedImg = imgBase64.split(partSeparator)[1];
+                byte[] decodedImg = Base64.getDecoder().decode(encodedImg.getBytes(StandardCharsets.UTF_8));
+                ByteArrayInputStream bis = new ByteArrayInputStream(decodedImg);
+                BufferedImage bImage2 = ImageIO.read(bis);
+                ImageIO.write(bImage2, "png", new File(pathname));
+                System.out.println("image created");
+            }
+            return new ResponseEntity<>("image created at "+pathname, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+    @CrossOrigin
+    @RequestMapping(value = "/profilePicture/user/role={role}/id={id}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getProfilePicture2(@PathVariable("id") int id,@PathVariable("role") String role) throws Exception {
+        try {
+            int user_id=userService.getUserIdByRole(id,role);
+            String imagePath="aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";
+            File file = new File(imagePath);
+            FileInputStream imageInFile = new FileInputStream(file);
+            byte imageData[] = new byte[(int) file.length()];
+            imageInFile.read(imageData);
+            String base64Image = Base64.getEncoder().encodeToString(imageData);
+            return new ResponseEntity<>(base64Image, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }

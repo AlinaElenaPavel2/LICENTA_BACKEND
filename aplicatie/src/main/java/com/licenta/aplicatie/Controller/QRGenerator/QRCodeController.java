@@ -29,6 +29,15 @@ public class QRCodeController {
 
     }
 
+    ///-------------  MOCK ENDPOINT   -------------
+    @CrossOrigin
+    @RequestMapping(value = "/generate2", method = {RequestMethod.POST})
+    public void download2() throws Exception {
+        String link = "http://192.168.1.5/:4200/university/course/Marketing";
+        QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH);
+
+    }
+
     @CrossOrigin
     @RequestMapping(value = "/", method = {RequestMethod.GET}, consumes = MediaType.ALL_VALUE)
     public ResponseEntity<?> generateQRCode(@RequestBody Prezenta prezenta) throws Exception {
