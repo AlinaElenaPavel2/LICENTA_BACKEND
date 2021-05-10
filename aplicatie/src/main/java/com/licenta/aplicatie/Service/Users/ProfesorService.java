@@ -16,10 +16,10 @@ public class ProfesorService {
     @Autowired
     ProfesorRepository profesorRepository;
 
-    public  List<Optional<Profesor>> getProfesorByName(String name) throws Exception {
-        List<Optional<Profesor>> profesor = profesorRepository.findProfesorByName(name);
-        if (profesor.size()>0) {
-            return profesor;
+    public  Profesor getProfesorByName(String name) throws Exception {
+        Optional<Profesor> profesor = profesorRepository.findProfesorByName(name);
+        if (profesor.isPresent()) {
+            return profesor.get();
         } else {
             throw new Exception("Profesor not found");
         }

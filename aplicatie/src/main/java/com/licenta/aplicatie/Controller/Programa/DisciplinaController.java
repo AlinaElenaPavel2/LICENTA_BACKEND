@@ -59,35 +59,31 @@ public class DisciplinaController {
     @RequestMapping(value = "/titular/nume={nume}", method = {RequestMethod.GET})
     public ResponseEntity<?> getDisciplinaByTitularNume(@PathVariable("nume") String nume) {
         try {
-            List<Optional<Profesor>> profesori=profesorService.getProfesorByName(nume);
-            List<Disciplina> discipline=new ArrayList<>();
-            for (Optional<Profesor> profesor:profesori
-                 ) {
-                if(profesor.isPresent())
-                {
-                   discipline.addAll(disciplinaService.getDisciplinaByIdTitular(profesor.get().getId_profesor()));
-                }
-            }
+            Profesor profesor = profesorService.getProfesorByName(nume);
+            List<Disciplina> discipline = new ArrayList<>();
+            discipline.addAll(disciplinaService.getDisciplinaByIdTitular(profesor.getId_profesor()));
             return new ResponseEntity<>(discipline, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
     @CrossOrigin
     @RequestMapping(value = "/", method = {RequestMethod.GET})
-    public ResponseEntity<?> getAll()  {
+    public ResponseEntity<?> getAll() {
         try {
-           List<Disciplina> discipline=disciplinaService.getAllDisciplines();
+            List<Disciplina> discipline = disciplinaService.getAllDisciplines();
             return new ResponseEntity<>(discipline, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
     @CrossOrigin
     @RequestMapping(value = "/abreviere={abreviere}", method = {RequestMethod.GET})
-    public ResponseEntity<?> getDisciplinaByAbreviere(@PathVariable("abreviere") String abreviere)  {
+    public ResponseEntity<?> getDisciplinaByAbreviere(@PathVariable("abreviere") String abreviere) {
         try {
-            List<Disciplina> disciplina=disciplinaService.getDisciplina(abreviere);
+            List<Disciplina> disciplina = disciplinaService.getDisciplina(abreviere);
             return new ResponseEntity<>(disciplina, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);

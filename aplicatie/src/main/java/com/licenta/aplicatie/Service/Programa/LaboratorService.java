@@ -46,4 +46,15 @@ public class LaboratorService {
             throw  new Exception("There are no profesor for that group");
         }
     }
+
+    public List<String> getGroupsByProfesorAndDiscip(int id_disciplina,int id_profesor) throws Exception {
+        List<String> grups=laboratorRepository.findgrupaByDiscipAndProf(id_disciplina,id_profesor);
+        if(grups.size() >0)
+        {
+            return grups;
+        }else
+        {
+            throw  new Exception("There are no grups for that discipline and prof");
+        }
+    }
 }

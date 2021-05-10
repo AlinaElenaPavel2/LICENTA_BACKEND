@@ -21,7 +21,7 @@ public class ProfesorController {
     @RequestMapping(value = "/fullname={fullname}", method = {RequestMethod.GET})
     public ResponseEntity<?> getProfesorByFullName(@PathVariable("fullname") String name) {
         try {
-            List<Optional<Profesor>> profesor = profesorService.getProfesorByName(name);
+            Profesor profesor = profesorService.getProfesorByName(name);
             return new ResponseEntity<>(profesor, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);

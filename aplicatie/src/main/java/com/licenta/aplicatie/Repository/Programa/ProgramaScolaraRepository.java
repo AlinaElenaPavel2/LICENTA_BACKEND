@@ -38,4 +38,8 @@ public interface ProgramaScolaraRepository  extends JpaRepository<ProgramaScolar
     @Transactional
     @Query(value = "SELECT id_disciplina FROM programa_scolara  WHERE  program_studii = :programStudii AND specializare = :specializare AND an = :an AND semestru = :semestru ", nativeQuery = true)
     List<Integer>  findDisciplines(String programStudii,String specializare,int an,int semestru);
+
+    @Transactional
+    @Query(value = "SELECT * FROM programa_scolara  WHERE  id_disciplina = :id_disciplina", nativeQuery = true)
+    Optional<ProgramaScolara>  findDisciplineDetails(int id_disciplina);
 }

@@ -90,4 +90,13 @@ public class ProgramaScolaraService {
             throw new Exception("No disciplines found for this year");
         }
     }
+
+    public ProgramaScolara getdisciplineDetails(int id_disciplina) throws Exception {
+        Optional<ProgramaScolara> programaScolara=programaScolaraRepository.findDisciplineDetails(id_disciplina);
+        if (programaScolara.isPresent()) {
+            return programaScolara.get();
+        } else {
+            throw new Exception("That discipline that not exist");
+        }
+    }
 }

@@ -24,4 +24,8 @@ public interface LaboratorRepository extends JpaRepository<Laborator,Integer> {
     @Query(value = "SELECT * FROM laborator  WHERE id_disciplina = :id_disciplina ", nativeQuery = true)
     List<Laborator> findLabProfesoriAndGrupa(int id_disciplina);
 
+    @Transactional
+    @Query(value = "SELECT grupa FROM laborator  WHERE id_disciplina = :id_disciplina AND id_profesor=:id_profesor ", nativeQuery = true)
+    List<String> findgrupaByDiscipAndProf(int id_disciplina,int id_profesor);
+
 }

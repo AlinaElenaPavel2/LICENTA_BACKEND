@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface ProfesorRepository  extends JpaRepository<Profesor,Integer> {
     @Transactional
     @Query(value ="SELECT * FROM Profesor  WHERE nume = :name", nativeQuery = true)
-    List<Optional<Profesor>> findProfesorByName(String name);
+    Optional<Profesor> findProfesorByName(String name);
 
     @Transactional
     @Query(value ="SELECT * FROM Profesor  WHERE email = :email", nativeQuery = true)
