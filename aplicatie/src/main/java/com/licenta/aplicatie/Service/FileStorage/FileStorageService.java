@@ -19,18 +19,30 @@ import java.nio.file.StandardCopyOption;
 
 @Service
 public class FileStorageService {
-    private final Path fileStorageLocation;
+    private Path fileStorageLocation;
+    private String globalDirector;
 
     @Autowired
     public FileStorageService(FileStorageProperties fileStorageProperties) {
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
                 .toAbsolutePath().normalize();
-
+        this.globalDirector=fileStorageProperties.getUploadDir();
         try {
             Files.createDirectories(this.fileStorageLocation);
         } catch (Exception ex) {
             throw new FileStorageException("Could not create the directory where the uploaded files will be stored.", ex);
         }
+    }
+
+    public void setFileStoragePath(String path)
+    {
+
+        this.fileStorageLocation=Paths.get(this.globalDirector+path)
+                .toAbsolutePath().normalize();
+    }
+    public String getFileStoragePath()
+    {
+        return this.fileStorageLocation.toString();
     }
 
     public String storeFile(MultipartFile file) {

@@ -5,7 +5,8 @@ import com.licenta.aplicatie.Service.FileStorage.UploadFileResponse;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
 import com.licenta.aplicatie.Service.Users.UserService;
-import org.apache.commons.io.FileUtils;
+//import org.apache.commons.io.FileUtils;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -62,6 +63,9 @@ public class FileStorageController {
 
 
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
+//       String path="/"+disciplina+"/"+tip;
+        fileStorageService.setFileStoragePath("/Marketing/Curs");
+        System.out.println(fileStorageService.getFileStoragePath());
         String fileName = fileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -70,12 +74,15 @@ public class FileStorageController {
                 .toUriString();
         HttpHeaders headers = new HttpHeaders();
         headers.add("Access-Control-Allow-Credentials", "true");
+        headers.add("Content type","multipart/*");
         return new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
 
     @CrossOrigin
     @PostMapping("/uploadMultipleFiles")
+//    @PostMapping("/disciplina={disciplina}/{tip}/uploadMultipleFiles")
+//    @RequestMapping(value = "/uploadMultipleFiles", produces =MediaType.MULTIPART_FORM_DATA_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE, method = RequestMethod.POST)
     public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("file") MultipartFile[] files) throws Exception {
         List<UploadFileResponse> list = new ArrayList<>();
         for (MultipartFile multipartFile : Arrays.asList(files)) {
@@ -83,6 +90,30 @@ public class FileStorageController {
             list.add(uploadFileResponse);
         }
         return list;
+    }
+
+    @CrossOrigin
+    @PostMapping("/disciplina={disciplina}/{componenta}/uploadMultipleFiles")
+    public void uploadMultipleFilesSecond(@PathVariable("disciplina") String disciplina,@PathVariable("componenta") String componenta) throws Exception {
+        String[] arr=disciplina.split(" ");
+        StringBuilder dispPath= new StringBuilder();
+        if(arr.length>1)
+        {
+            for (String name:arr
+                 ) {
+                System.out.println(name);
+                dispPath.append(name).append("_");
+            }
+
+        }
+        String path="/"+dispPath.substring(0,dispPath.length()-1)+"/"+componenta;
+        System.out.println(path);
+//        List<UploadFileResponse> list = new ArrayList<>();
+//        for (MultipartFile multipartFile : Arrays.asList(files)) {
+//            UploadFileResponse uploadFileResponse = uploadFile(multipartFile);
+//            list.add(uploadFileResponse);
+//        }
+//        return list;
     }
 
 
@@ -115,6 +146,7 @@ public class FileStorageController {
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) throws Exception {
         // Load file as Resource
         Resource resource = fileStorageService.loadFileAsResource(fileName);
+        System.out.println(resource.getFile().getAbsolutePath());
         // Try to determine file's content type
         String contentType = null;
         try {
@@ -159,7 +191,7 @@ public class FileStorageController {
     @RequestMapping(value = "/profilePicture/user/id={id}", method = {RequestMethod.GET})
     public ResponseEntity<?> getProfilePicture(@PathVariable("id") int id) throws Exception {
         try {
-
+            System.out.println(userService.getProfilePicturePath(id));
             String imagePath = "aplicatie/src/main/resources/ProfilePictures/user_" + id + ".png";
             File file = new File(imagePath);
             FileInputStream imageInFile = new FileInputStream(file);

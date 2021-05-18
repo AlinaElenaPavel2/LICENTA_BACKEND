@@ -37,7 +37,7 @@ public class User {
 
     @Lob
     @Column(name = "picture", nullable = false)
-    private byte[] picture;
+    private String picture;
 
     @Override
     public String toString() {
@@ -48,7 +48,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
-                ", picture=" + Arrays.toString(picture) +
+                ", picture=" + picture +
                 '}';
     }
 }

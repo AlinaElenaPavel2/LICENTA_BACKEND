@@ -33,7 +33,9 @@ public class QRCodeController {
     @CrossOrigin
     @RequestMapping(value = "/generate2", method = {RequestMethod.POST})
     public void download2() throws Exception {
-        String link = "http://192.168.1.5/:4200/university/course/Marketing";
+        String student="Popa Mihai";
+        int laborator = 3;
+        String link = "http://localhost:4200/university/course/Marketing/student/"+student+"/laborator/"+laborator+"/present/successfully";
         QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH);
 
     }

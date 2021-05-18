@@ -50,4 +50,13 @@ public class UserService {
         }
 
     }
+
+    public String getProfilePicturePath(int id_user) throws Exception {
+        String path = userRepository.getProfilePicturePath(id_user);
+        if (path != null) {
+            return path;
+        } else {
+            return userRepository.getProfilePicturePath(-1);
+        }
+    }
 }

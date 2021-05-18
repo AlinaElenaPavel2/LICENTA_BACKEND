@@ -78,4 +78,21 @@ public class DisciplineStudents {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/grupa={grupa}/laborator={laborator}/studenti", method = {RequestMethod.POST})
+    public ResponseEntity<?> sendEmailToAllStudents(@PathVariable("disciplina") String disciplina, @PathVariable("grupa") String grupa,@PathVariable("laborator") String laborator) {
+        try {
+            Disciplina dis = disciplinaService.getDisciplinaByTitlu(disciplina);
+            List<Student> studenti = studentService.findStudentsByGrupa(grupa);
+            for (Student student:studenti
+                 ) {
+                System.out.println(student.getNume()+" - "+dis.getId_disciplina()+" - "+laborator );
+            }
+
+            return new ResponseEntity<>("All email were send", HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }

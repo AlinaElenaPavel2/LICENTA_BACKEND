@@ -15,4 +15,7 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
     @Query(value ="SELECT id_user FROM User  WHERE id_profesor = :id_profesor", nativeQuery = true)
     Integer getUserIdByProfesorId(int id_profesor);
+
+    @Query(value ="SELECT picture FROM User  WHERE id_user = :id_user", nativeQuery = true)
+    String getProfilePicturePath(int id_user);
 }
