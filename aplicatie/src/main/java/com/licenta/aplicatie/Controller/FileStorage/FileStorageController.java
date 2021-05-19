@@ -27,10 +27,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.List;
+import java.util.*;
 
 
 @RestController
@@ -74,7 +71,7 @@ public class FileStorageController {
                 .toUriString();
         HttpHeaders headers = new HttpHeaders();
         headers.add("Access-Control-Allow-Credentials", "true");
-        headers.add("Content type","multipart/*");
+        headers.add("Content type", "multipart/*");
         return new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
@@ -94,19 +91,18 @@ public class FileStorageController {
 
     @CrossOrigin
     @PostMapping("/disciplina={disciplina}/{componenta}/uploadMultipleFiles")
-    public void uploadMultipleFilesSecond(@PathVariable("disciplina") String disciplina,@PathVariable("componenta") String componenta) throws Exception {
-        String[] arr=disciplina.split(" ");
-        StringBuilder dispPath= new StringBuilder();
-        if(arr.length>1)
-        {
-            for (String name:arr
-                 ) {
+    public void uploadMultipleFilesSecond(@PathVariable("disciplina") String disciplina, @PathVariable("componenta") String componenta) throws Exception {
+        String[] arr = disciplina.split(" ");
+        StringBuilder dispPath = new StringBuilder();
+        if (arr.length > 1) {
+            for (String name : arr
+            ) {
                 System.out.println(name);
                 dispPath.append(name).append("_");
             }
 
         }
-        String path="/"+dispPath.substring(0,dispPath.length()-1)+"/"+componenta;
+        String path = "/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
         System.out.println(path);
 //        List<UploadFileResponse> list = new ArrayList<>();
 //        for (MultipartFile multipartFile : Arrays.asList(files)) {
@@ -141,6 +137,69 @@ public class FileStorageController {
                 .body(resource);
     }
 
+    @CrossOrigin
+    @GetMapping("/{disciplina}/{tip}/{fileName}")
+    public ResponseEntity<Resource> openFileForGivenPath(@PathVariable("fileName") String fileName, @PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
+        // Load file as Resource
+        String filePath = "/" + disciplina + "/" + tip + "/";
+        System.out.println(filePath);
+        Resource resource = fileStorageService.loadFileAsResourceGivenPath(fileName, filePath);
+        // Try to determine file's content type
+        String contentType = null;
+        try {
+            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+        } catch (IOException ex) {
+//            logger.info("Could not determine file type.");
+            System.out.println("Could not determine file type.");
+        }
+
+        // Fallback to the default content type if type could not be determined
+        if (contentType == null) {
+            contentType = "application/octet-stream";
+        }
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(contentType))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                .body(resource);
+    }
+
+    @CrossOrigin
+    @GetMapping("/{disciplina}/{tip}")
+    public ResponseEntity<?> getFile(@PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
+//        StringBuilder dispPath = new StringBuilder();
+//        StringBuilder filePath = new StringBuilder();
+//
+//        try {
+//            String[] arr = disciplina.split(" ");
+//            if (arr.length > 1) {
+//                for (String name : arr
+//                ) {
+//                    System.out.println(name);
+//                    dispPath.append(name).append("_");
+//                }
+//
+//            }
+//             filePath.append("/" + dispPath.substring(0, dispPath.length() - 1) + "/" + tip + "/");
+//        } catch (Exception ex) {
+//            dispPath.append(disciplina);
+//        }
+        try {
+            String filePath = "/" + disciplina+ "/" + tip + "/";
+            System.out.println(filePath);
+            List<String> files = fileStorageService.getAllFilesFromDirectory(filePath);
+            List<String> filesUri = new ArrayList<>();
+
+            for (String file:files
+                 ) {
+                filesUri.add("http://localhost:8080/api/licenta/fileStorage/"+disciplina+"/"+tip+"/"+file);
+            }
+            return new ResponseEntity<>(filesUri, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+
+    }
 
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) throws Exception {
@@ -207,10 +266,10 @@ public class FileStorageController {
 
     @CrossOrigin
     @PostMapping("/uploadProfilePicture/user/role={role}/id={id}")
-    public ResponseEntity<?> uploadPicture2(@PathVariable("id") int id,@PathVariable("role") String role, @RequestBody String imgBase64) throws Exception {
+    public ResponseEntity<?> uploadPicture2(@PathVariable("id") int id, @PathVariable("role") String role, @RequestBody String imgBase64) throws Exception {
         try {
-            int user_id=userService.getUserIdByRole(id,role);
-            String pathname="aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";
+            int user_id = userService.getUserIdByRole(id, role);
+            String pathname = "aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";
             String partSeparator = ",";
             if (imgBase64.contains(partSeparator)) {
                 String encodedImg = imgBase64.split(partSeparator)[1];
@@ -220,7 +279,7 @@ public class FileStorageController {
                 ImageIO.write(bImage2, "png", new File(pathname));
                 System.out.println("image created");
             }
-            return new ResponseEntity<>("image created at "+pathname, HttpStatus.OK);
+            return new ResponseEntity<>("image created at " + pathname, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
@@ -229,10 +288,10 @@ public class FileStorageController {
 
     @CrossOrigin
     @RequestMapping(value = "/profilePicture/user/role={role}/id={id}", method = {RequestMethod.GET})
-    public ResponseEntity<?> getProfilePicture2(@PathVariable("id") int id,@PathVariable("role") String role) throws Exception {
+    public ResponseEntity<?> getProfilePicture2(@PathVariable("id") int id, @PathVariable("role") String role) throws Exception {
         try {
-            int user_id=userService.getUserIdByRole(id,role);
-            String imagePath="aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";
+            int user_id = userService.getUserIdByRole(id, role);
+            String imagePath = "aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";
             File file = new File(imagePath);
             FileInputStream imageInFile = new FileInputStream(file);
             byte imageData[] = new byte[(int) file.length()];

@@ -10,12 +10,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class FileStorageService {
@@ -77,5 +80,34 @@ public class FileStorageService {
         } catch (MalformedURLException ex) {
             throw new FileNotFoundException("File not found " + fileName, ex);
         }
+    }
+
+    public Resource loadFileAsResourceGivenPath(String fileName, String path) {
+        try {
+            this.fileStorageLocation = Paths.get(this.globalDirector + path)
+                    .toAbsolutePath().normalize();
+            Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+            Resource resource = new UrlResource(filePath.toUri());
+            if (resource.exists()) {
+                return resource;
+            } else {
+                throw new FileNotFoundException("File not found " + fileName);
+            }
+        } catch (MalformedURLException ex) {
+            throw new FileNotFoundException("File not found " + fileName, ex);
+        }
+    }
+
+    public List<String> getAllFilesFromDirectory(String path) {
+        List<String> fileNames = new ArrayList<>();
+        File directoryPath = new File(this.fileStorageLocation.toString()+path);
+        //List of all files and directories
+        File filesList[] = directoryPath.listFiles();
+        System.out.println("List of files and directories in the specified directory:");
+        for (File file : filesList) {
+            System.out.println("File name: " + file.getName());
+            fileNames.add(file.getName());
+        }
+        return fileNames;
     }
 }
