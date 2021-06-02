@@ -76,6 +76,22 @@ public class FileStorageController {
                 file.getContentType(), file.getSize());
     }
 
+    public UploadFileResponse uploadFile(MultipartFile file, String path) throws Exception {
+        fileStorageService.setFileStoragePath(path);
+        System.out.println(fileStorageService.getFileStoragePath());
+        String fileName = fileStorageService.storeFile(file);
+
+        String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("api/licenta/fileStorage/downloadFile/")
+                .path(fileName)
+                .toUriString();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Access-Control-Allow-Credentials", "true");
+        headers.add("Content type", "multipart/*");
+        return new UploadFileResponse(fileName, fileDownloadUri,
+                file.getContentType(), file.getSize());
+    }
+
     @CrossOrigin
     @PostMapping("/uploadMultipleFiles")
 //    @PostMapping("/disciplina={disciplina}/{tip}/uploadMultipleFiles")
@@ -91,25 +107,26 @@ public class FileStorageController {
 
     @CrossOrigin
     @PostMapping("/disciplina={disciplina}/{componenta}/uploadMultipleFiles")
-    public void uploadMultipleFilesSecond(@PathVariable("disciplina") String disciplina, @PathVariable("componenta") String componenta) throws Exception {
+    public List<UploadFileResponse> uploadMultipleFilesSecond(@RequestParam("file") MultipartFile[] files, @PathVariable("disciplina") String disciplina, @PathVariable("componenta") String componenta) throws Exception {
         String[] arr = disciplina.split(" ");
+        String path="";
         StringBuilder dispPath = new StringBuilder();
         if (arr.length > 1) {
             for (String name : arr
             ) {
-                System.out.println(name);
                 dispPath.append(name).append("_");
             }
-
+            path="/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
         }
-        String path = "/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
+//        String path = "/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
+        path="/"+disciplina+"/"+componenta+"/";
         System.out.println(path);
-//        List<UploadFileResponse> list = new ArrayList<>();
-//        for (MultipartFile multipartFile : Arrays.asList(files)) {
-//            UploadFileResponse uploadFileResponse = uploadFile(multipartFile);
-//            list.add(uploadFileResponse);
-//        }
-//        return list;
+        List<UploadFileResponse> list = new ArrayList<>();
+        for (MultipartFile multipartFile : Arrays.asList(files)) {
+            UploadFileResponse uploadFileResponse = uploadFile(multipartFile,path);
+            list.add(uploadFileResponse);
+        }
+        return list;
     }
 
 
@@ -185,14 +202,14 @@ public class FileStorageController {
 //            dispPath.append(disciplina);
 //        }
         try {
-            String filePath = "/" + disciplina+ "/" + tip + "/";
+            String filePath = "/" + disciplina + "/" + tip + "/";
             System.out.println(filePath);
             List<String> files = fileStorageService.getAllFilesFromDirectory(filePath);
             List<String> filesUri = new ArrayList<>();
 
-            for (String file:files
-                 ) {
-                filesUri.add("http://localhost:8080/api/licenta/fileStorage/"+disciplina+"/"+tip+"/"+file);
+            for (String file : files
+            ) {
+                filesUri.add("http://localhost:8080/api/licenta/fileStorage/" + disciplina + "/" + tip + "/" + file);
             }
             return new ResponseEntity<>(filesUri, HttpStatus.OK);
         } catch (Exception ex) {

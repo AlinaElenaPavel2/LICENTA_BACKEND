@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @RestController
 @RequestMapping("api/licenta/catalog")
 public class CatalogController {
@@ -42,6 +44,19 @@ public class CatalogController {
             Student student=studentService.getStudentByName(numeStudent);
             Catalog note=catalogService.getMarks(disciplina.getId_disciplina(),student.getId_student());
             return new ResponseEntity<>(note, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/student={nume}/an={an}/situatie", method = {RequestMethod.GET})
+    public ResponseEntity<?> getMarks(@PathVariable("nume") String nume,@PathVariable("an") int an) {
+        try {
+            Student student=studentService.getStudentByName(nume);
+            HashMap<String,Float> situatie=catalogService.getFinalSituation(student.getId_student(),student.getProgram_studiu(),student.getSpecializare(),an);
+
+            return new ResponseEntity<>(situatie, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }

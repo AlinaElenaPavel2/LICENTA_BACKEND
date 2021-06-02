@@ -1,13 +1,19 @@
 package com.licenta.aplicatie.Service.SituatieScolara;
 
+import com.licenta.aplicatie.Models.Programa.Disciplina;
+import com.licenta.aplicatie.Models.Programa.ProgramaScolara;
 import com.licenta.aplicatie.Models.SituatieScolara.Catalog;
 import com.licenta.aplicatie.Models.SituatieScolara.Evaluare;
+import com.licenta.aplicatie.Repository.Programa.DisciplinaRepository;
+import com.licenta.aplicatie.Repository.Programa.ProgramaScolaraRepository;
 import com.licenta.aplicatie.Repository.SituatieScolara.CatalogRepository;
 import com.licenta.aplicatie.Repository.SituatieScolara.EvaluareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +24,10 @@ public class CatalogService {
     CatalogRepository catalogRepository;
     @Autowired
     EvaluareRepository evaluareRepository;
+    @Autowired
+    ProgramaScolaraRepository programaScolaraRepository;
+    @Autowired
+    DisciplinaRepository disciplinaRepository;
 
     public Catalog getMarks(int id_disciplina, int id_student) throws Exception {
         Optional<Catalog> catalogOp = catalogRepository.findMark(id_disciplina, id_student);
@@ -73,6 +83,20 @@ public class CatalogService {
         } else {
             throw new Exception("The discipline does not exist");
         }
+    }
+
+    public HashMap<String,Float> getFinalSituation(int id_student,String programStudii,String specializare,int an) throws Exception {
+        List<Integer> disciplinesId=programaScolaraRepository.findDisciplinesBySpecializareAndAn(programStudii,specializare,an);
+        System.out.println("Discipline ids");
+        System.out.println(disciplinesId);
+
+        HashMap<String,Float> situatie=new HashMap<>();
+        for(Integer id:disciplinesId)
+        {
+            Disciplina disciplina=disciplinaRepository.findDisciplina(id);
+            situatie.put(disciplina.getAbreviere(),this.getFinalMark(id_student,id));
+        }
+        return situatie;
     }
 
 }

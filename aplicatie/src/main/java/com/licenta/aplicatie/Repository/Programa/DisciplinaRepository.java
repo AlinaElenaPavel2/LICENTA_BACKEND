@@ -43,4 +43,8 @@ public interface DisciplinaRepository extends JpaRepository<Disciplina, Integer>
     @Transactional
     @Query(value = "SELECT * FROM disciplina  WHERE abreviere = :abreviere", nativeQuery = true)
     List<Optional<Disciplina>> findDisciplinaByAbreviere(String abreviere);
+
+    @Transactional
+    @Query(value = "SELECT * FROM disciplina  WHERE id_disciplina = :id_disciplina", nativeQuery = true)
+    Disciplina findDisciplina(int id_disciplina);
 }
