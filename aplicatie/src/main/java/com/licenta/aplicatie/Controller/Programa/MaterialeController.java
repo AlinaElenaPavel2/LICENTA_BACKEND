@@ -1,6 +1,7 @@
 package com.licenta.aplicatie.Controller.Programa;
 
 import com.licenta.aplicatie.Models.Programa.Disciplina;
+import com.licenta.aplicatie.Models.Programa.Materiale;
 import com.licenta.aplicatie.Models.Users.Profesor;
 import com.licenta.aplicatie.Service.Programa.DisciplinaService;
 import com.licenta.aplicatie.Service.Programa.MaterialeService;
@@ -21,16 +22,65 @@ public class MaterialeController {
 
     @CrossOrigin
     @RequestMapping(value = "/disciplina={disciplina}/tip={tip}", method = {RequestMethod.GET})
-    public ResponseEntity<?> getProfByGrupa(@PathVariable("tip") String tip, @PathVariable("disciplina") String disciplina) {
+    public ResponseEntity<?> getPathsForDiscipline(@PathVariable("tip") String tip, @PathVariable("disciplina") String disciplina) {
         try {
             Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
-            List<String> paths =materialeService.getAllPaths(discip.getId_disciplina(),tip);
+            List<String> paths = materialeService.getAllPaths(discip.getId_disciplina(), tip);
             return new ResponseEntity<>(paths, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/tip={tip}/descriere", method = {RequestMethod.GET})
+    public ResponseEntity<?> getDescriptions(@PathVariable("tip") String tip, @PathVariable("disciplina") String disciplina) {
+        try {
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            System.out.println(discip.getId_disciplina());
+            List<String> paths = materialeService.getAllDescriptions(discip.getId_disciplina(), tip);
+            return new ResponseEntity<>(paths, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/tip={tip}/titles", method = {RequestMethod.GET})
+    public ResponseEntity<?> getLinkTitle(@PathVariable("tip") String tip, @PathVariable("disciplina") String disciplina) {
+        try {
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            List<String> paths = materialeService.getLinkTitle(discip.getId_disciplina(), tip);
+            return new ResponseEntity<>(paths, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}", method = {RequestMethod.POST})
+    public ResponseEntity<?> addLink( @PathVariable("disciplina") String disciplina,@RequestBody Materiale newMateriale) {
+        try {
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            newMateriale.setId_disciplina(discip.getId_disciplina());
+            newMateriale.setTip("link");
+            System.out.println(newMateriale);
+            materialeService.addLink( newMateriale);
+            return new ResponseEntity<>("Save successfully saved!", HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getMateriale( @PathVariable("disciplina") String disciplina) {
+        try {
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            List<Materiale> materiale = materialeService.getSelectedData(discip.getId_disciplina(), "link");
+            return new ResponseEntity<>(materiale, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }

@@ -29,7 +29,7 @@ public class FileStorageService {
     public FileStorageService(FileStorageProperties fileStorageProperties) {
         this.fileStorageLocation = Paths.get(fileStorageProperties.getUploadDir())
                 .toAbsolutePath().normalize();
-        this.globalDirector=fileStorageProperties.getUploadDir();
+        this.globalDirector = fileStorageProperties.getUploadDir();
         try {
             Files.createDirectories(this.fileStorageLocation);
         } catch (Exception ex) {
@@ -37,14 +37,13 @@ public class FileStorageService {
         }
     }
 
-    public void setFileStoragePath(String path)
-    {
+    public void setFileStoragePath(String path) {
 
-        this.fileStorageLocation=Paths.get(this.globalDirector+path)
+        this.fileStorageLocation = Paths.get(this.globalDirector + path)
                 .toAbsolutePath().normalize();
     }
-    public String getFileStoragePath()
-    {
+
+    public String getFileStoragePath() {
         return this.fileStorageLocation.toString();
     }
 
@@ -54,7 +53,7 @@ public class FileStorageService {
 
         try {
             // Check if the file's name contains invalid characters
-            if(fileName.contains("..")) {
+            if (fileName.contains("..")) {
                 throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
             }
 
@@ -72,7 +71,7 @@ public class FileStorageService {
         try {
             Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
             Resource resource = new UrlResource(filePath.toUri());
-            if(resource.exists()) {
+            if (resource.exists()) {
                 return resource;
             } else {
                 throw new FileNotFoundException("File not found " + fileName);
@@ -100,13 +99,15 @@ public class FileStorageService {
 
     public List<String> getAllFilesFromDirectory(String path) {
         List<String> fileNames = new ArrayList<>();
-        File directoryPath = new File(this.fileStorageLocation.toString()+path);
+        File directoryPath = new File(this.fileStorageLocation.toString() + path);
         //List of all files and directories
-        File filesList[] = directoryPath.listFiles();
-        System.out.println("List of files and directories in the specified directory:");
-        for (File file : filesList) {
-            System.out.println("File name: " + file.getName());
-            fileNames.add(file.getName());
+        File[] filesList = directoryPath.listFiles();
+        if (filesList != null) {
+            System.out.println("List of files and directories in the specified directory:");
+            for (File file : filesList) {
+                System.out.println("File name: " + file.getName());
+                fileNames.add(file.getName());
+            }
         }
         return fileNames;
     }

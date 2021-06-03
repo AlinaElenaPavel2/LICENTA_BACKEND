@@ -21,45 +21,65 @@ public class MaterialeService {
         if (materiale.size() > 0) {
             return materiale;
         } else {
-            throw new Exception("There are no discipline with that id");
+            throw new Exception("There are no materials for that discipline with that id");
         }
     }
 
     public List<Materiale> getAllDataSpecific(int id_disciplina, String tip) throws Exception {
-        if (!(tip.equals("Curs") || tip.equals("Laborator") || tip.equals("Auxiliare"))) {
-            List<Materiale> materiale = materialeRepository.getAllData(id_disciplina, tip);
-            if (materiale.size() > 0) {
-                return materiale;
-            } else {
-                throw new Exception("There are no discipline with that id");
-            }
+        List<Materiale> materiale = materialeRepository.getAllData(id_disciplina, tip);
+        if (materiale.size() > 0) {
+            return materiale;
         } else {
-            throw new Exception("There are component for the discipline");
+            throw new Exception("There are no discipline with that id");
         }
+
     }
 
     public List<String> getAllPaths(int id_disciplina, String tip) throws Exception {
-        if (!(tip.equals("Curs") || tip.equals("Laborator") || tip.equals("Auxiliare"))) {
-            List<String> paths = materialeRepository.getAllPaths(id_disciplina, tip);
-            if (paths.size() > 0) {
-                return paths;
-            } else {
-                throw new Exception("There are no discipline with that id");
-            }
+        List<String> paths = materialeRepository.getAllPaths(id_disciplina, tip);
+        if (paths.size() > 0) {
+            return paths;
         } else {
-            throw new Exception("There are component for the discipline");
+            throw new Exception("There are no discipline with that id");
+        }
+
+    }
+
+    public List<String> getAllDescriptions(int id_disciplina, String tip) throws Exception {
+        List<String> paths = materialeRepository.getAllDescriptions(id_disciplina, tip);
+        if (paths.size() > 0) {
+            return paths;
+        } else {
+            throw new Exception("There are no discipline with that id");
+        }
+
+    }
+
+    public List<String> getLinkTitle(int id_disciplina, String tip) throws Exception {
+        List<String> paths = materialeRepository.getTitles(id_disciplina, tip);
+        if (paths.size() > 0) {
+            return paths;
+        } else {
+            throw new Exception("There are no discipline with that id");
         }
     }
-    public List<String> getAllDescriptions(int id_disciplina, String tip) throws Exception {
-        if (!(tip.equals("Curs") || tip.equals("Laborator") || tip.equals("Auxiliare"))) {
-            List<String> paths = materialeRepository.getAllPaths(id_disciplina, tip);
-            if (paths.size() > 0) {
-                return paths;
-            } else {
-                throw new Exception("There are no discipline with that id");
-            }
-        } else {
-            throw new Exception("There are component for the discipline");
+
+    public void addLink(Materiale newLink) throws Exception {
+        try {
+            materialeRepository.save(newLink);
+        }catch (Exception ex)
+        {
+            throw new Exception("Save was not successfully!");
+        }
+    }
+
+    public List<Materiale> getSelectedData(int id_disciplina,String tip) throws Exception {
+       List<Materiale> materiale=materialeRepository.getSelectedData(id_disciplina,tip);
+        if(materiale.size()> 0) {
+           return materiale;
+        }else
+        {
+            throw new Exception("Save was not successfully!");
         }
     }
 }

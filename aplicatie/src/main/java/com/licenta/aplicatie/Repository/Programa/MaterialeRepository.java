@@ -30,4 +30,12 @@ public interface MaterialeRepository extends JpaRepository<Materiale, Integer> {
     @Transactional
     @Query(value = "SELECT descriere FROM materiale  WHERE id_disciplina = :id_disciplina AND tip=:tip and path=:path", nativeQuery = true)
     String getDescriptions(int id_disciplina,String tip,String path);
+
+    @Transactional
+    @Query(value = "SELECT titlu FROM materiale  WHERE id_disciplina = :id_disciplina AND tip=:tip", nativeQuery = true)
+    List<String> getTitles(int id_disciplina,String tip);
+
+    @Transactional
+    @Query(value = "SELECT * FROM materiale  WHERE id_disciplina = :id_disciplina AND tip=:tip", nativeQuery = true)
+    List<Materiale> getSelectedData(int id_disciplina,String tip);
 }

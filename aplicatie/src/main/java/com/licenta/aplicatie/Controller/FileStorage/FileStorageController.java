@@ -109,21 +109,21 @@ public class FileStorageController {
     @PostMapping("/disciplina={disciplina}/{componenta}/uploadMultipleFiles")
     public List<UploadFileResponse> uploadMultipleFilesSecond(@RequestParam("file") MultipartFile[] files, @PathVariable("disciplina") String disciplina, @PathVariable("componenta") String componenta) throws Exception {
         String[] arr = disciplina.split(" ");
-        String path="";
+        String path = "";
         StringBuilder dispPath = new StringBuilder();
         if (arr.length > 1) {
             for (String name : arr
             ) {
                 dispPath.append(name).append("_");
             }
-            path="/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
+            path = "/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
         }
 //        String path = "/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
-        path="/"+disciplina+"/"+componenta+"/";
+        path = "/" + disciplina + "/" + componenta + "/";
         System.out.println(path);
         List<UploadFileResponse> list = new ArrayList<>();
         for (MultipartFile multipartFile : Arrays.asList(files)) {
-            UploadFileResponse uploadFileResponse = uploadFile(multipartFile,path);
+            UploadFileResponse uploadFileResponse = uploadFile(multipartFile, path);
             list.add(uploadFileResponse);
         }
         return list;
@@ -158,7 +158,7 @@ public class FileStorageController {
     @GetMapping("/{disciplina}/{tip}/{fileName}")
     public ResponseEntity<Resource> openFileForGivenPath(@PathVariable("fileName") String fileName, @PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
         // Load file as Resource
-        String filePath = "/" + disciplina + "/" + tip + "/";
+        String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
         System.out.println(filePath);
         Resource resource = fileStorageService.loadFileAsResourceGivenPath(fileName, filePath);
         // Try to determine file's content type
@@ -202,20 +202,38 @@ public class FileStorageController {
 //            dispPath.append(disciplina);
 //        }
         try {
-            String filePath = "/" + disciplina + "/" + tip + "/";
+            String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
             System.out.println(filePath);
             List<String> files = fileStorageService.getAllFilesFromDirectory(filePath);
             List<String> filesUri = new ArrayList<>();
-
-            for (String file : files
-            ) {
-                filesUri.add("http://localhost:8080/api/licenta/fileStorage/" + disciplina + "/" + tip + "/" + file);
+            System.out.println(files.size());
+            if(files.size()>0) {
+                for (String file : files
+                ) {
+                    filesUri.add("http://localhost:8080/api/licenta/fileStorage/" + disciplina + "/" + tip + "/" + file);
+                }
             }
             return new ResponseEntity<>(filesUri, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
 
+    }
+
+    public String getPath(String disciplina) {
+        StringBuilder filePath = new StringBuilder();
+        String[] arr = disciplina.split(" ");
+        if (arr.length > 1) {
+            for (String name : arr
+            ) {
+                filePath.append(name).append("_");
+            }
+            return filePath.substring(0,filePath.length()-1);
+        }
+        else
+        {
+            return  disciplina;
+        }
     }
 
     @GetMapping("/downloadFile/{fileName:.+}")
