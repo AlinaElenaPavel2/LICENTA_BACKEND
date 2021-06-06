@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -40,5 +41,14 @@ public class RestantaService {
         } else {
             throw new Exception("There are no re-exams for this discipline");
         }
+    }
+
+    public List<Integer> getListReex(int id_student) throws Exception {
+        int reexaminari = restantaRepository.findReexamniariForStudents(id_student, "reexaminari");
+        int rereexaminari = restantaRepository.findReexamniariForStudents(id_student, "re-reexaminari");
+        List<Integer> count = new ArrayList<>();
+        count.add(reexaminari);
+        count.add(rereexaminari);
+        return count;
     }
 }

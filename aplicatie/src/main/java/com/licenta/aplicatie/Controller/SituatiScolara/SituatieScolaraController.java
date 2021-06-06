@@ -54,6 +54,28 @@ public class SituatieScolaraController {
         }
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/student={nume}/medii/semestre", method = {RequestMethod.GET})
+    public ResponseEntity<?> getMediiSemestre(@PathVariable("nume") String nume) {
+        try {
+            Student student = studentService.getStudentByName(nume);
+            List<Integer> medii = situatieScolaraService.getMedii(student.getId_student());
+            List<Double> mediiSemestre = new ArrayList<>();
+            int val = 8;
+            for (int i = 0; i < student.getAn(); i++) {
+                Double medieSemestru2 = 0.0;
+                Double medieSemestru1 = (medii.get(0 + val * i) + medii.get(1 + val * i) + medii.get(2 + val * i) + medii.get(3 + val * i)) / 4.0;
+                if (4 + val * i < medii.size()) {
+                    medieSemestru2 += (medii.get(4 + val * i) + medii.get(5 + val * i) + medii.get(6 + val * i) + medii.get(7 + val * i)) / 4.0;
+                }
+                mediiSemestre.add(medieSemestru1);
+                mediiSemestre.add(medieSemestru2);
+            }
+            return new ResponseEntity<>(mediiSemestre, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 //    @CrossOrigin
 //    @RequestMapping(value = "/student={nume}/medii/discipline", method = {RequestMethod.GET})
 //    public ResponseEntity<?> getMediiDisicpline(@PathVariable("nume") String nume) {
@@ -91,7 +113,7 @@ public class SituatieScolaraController {
             List<String> disciplineNum = new ArrayList<>();
             for (Integer disciplina : discipline
             ) {
-                disciplineNum.add(disciplinaService.getDisciplina(disciplina).getNume());
+                disciplineNum.add(disciplinaService.getDisciplina(disciplina).getAbreviere());
             }
             Map map = new HashMap();
             map.put("discipline", disciplineNum);

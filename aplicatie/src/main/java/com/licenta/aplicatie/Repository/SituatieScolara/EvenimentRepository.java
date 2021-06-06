@@ -28,7 +28,10 @@ public interface EvenimentRepository extends JpaRepository<Eveniment, Integer> {
     Optional<Eveniment> addEveniment(int id_disciplina, Date data, String titlu, String descriere);
 
     @Transactional
-    @Modifying
     @Query(value = "DELETE FROM eveniment WHERE id_disciplina=:id_disciplina  AND data=:data AND titlu=:titlu AND descriere=:descriere", nativeQuery = true)
     void deleteEveniment(int id_disciplina, Date data, String titlu, String descriere);
+
+    @Transactional
+    @Query(value = "SELECT * FROM eveniment WHERE id_disciplina=:id_disciplina and titlu LIKE '%EXAMEN%'", nativeQuery = true)
+    Optional<Eveniment> getEveniment(int id_disciplina);
 }

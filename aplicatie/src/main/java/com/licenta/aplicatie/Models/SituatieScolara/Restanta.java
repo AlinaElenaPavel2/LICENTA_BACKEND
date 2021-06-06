@@ -16,7 +16,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "Restanta")
+@Table(name = "Reexaminari")
 public class Restanta {
     @Id
     @Column(name = "id_student", nullable = false)
@@ -28,6 +28,9 @@ public class Restanta {
     @Column(name = "data", nullable = false)
     private Date data;
 
-    @Column(name = "medie", nullable = false)
+    @Column(name = "nota", nullable = false)
     private int medie;
+
+    @Column(name = "tip", nullable = false)
+    private String tip;
 }

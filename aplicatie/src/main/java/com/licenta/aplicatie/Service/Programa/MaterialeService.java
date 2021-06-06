@@ -82,4 +82,14 @@ public class MaterialeService {
             throw new Exception("Save was not successfully!");
         }
     }
+
+    public String getDescription(int id_disciplina,String tip,String path) throws Exception {
+        String paths =materialeRepository.getDescriptions(id_disciplina,tip,path);
+        if(paths!=null) {
+            return paths;
+        }else
+        {
+            return "Descriere was not provided!";
+        }
+    }
 }

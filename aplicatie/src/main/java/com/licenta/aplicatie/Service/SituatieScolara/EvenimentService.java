@@ -27,8 +27,7 @@ public class EvenimentService {
     public void saveEveniment(Eveniment newEveniment) throws Exception {
         try {
             evenimentRepository.addEveniment(newEveniment.getId_disciplina(), newEveniment.getData(), newEveniment.getTitlu(), newEveniment.getDescriere());
-        }catch(Exception ex)
-        {
+        } catch (Exception ex) {
             throw new Exception("Evenimentul nu a fost adaugat");
         }
     }
@@ -36,10 +35,36 @@ public class EvenimentService {
     public void deleteEveniment(Eveniment newEveniment) throws Exception {
         try {
             evenimentRepository.deleteEveniment(newEveniment.getId_disciplina(), newEveniment.getData(), newEveniment.getTitlu(), newEveniment.getDescriere());
-        }catch(Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println(ex.toString());
             throw new Exception("Evenimentul nu a fost sters");
+        }
+    }
+
+    public Eveniment getExam(int id_disciplina) throws Exception {
+        List<Eveniment> evenimente = evenimentRepository.findEvenimenteByDisciplina(id_disciplina);
+        if (evenimente.size() > 0) {
+            for (Eveniment ev : evenimente
+            ) {
+                System.out.println(ev.toString());
+                if (ev.getTitlu().contains("EXAMEN")) {
+                    return ev;
+                } else {
+                    return null;
+                }
+            }
+        } else {
+            throw new Exception("There are no eveniment for this discipline");
+        }
+        return null;
+    }
+
+    public Eveniment getEveniment(int id_disciplina) throws Exception {
+        Optional<Eveniment> eveniment = evenimentRepository.getEveniment(id_disciplina);
+        if (eveniment.isPresent()) {
+            return eveniment.get();
+        } else {
+            throw new Exception("There are no eveniment for this discipline");
         }
     }
 }

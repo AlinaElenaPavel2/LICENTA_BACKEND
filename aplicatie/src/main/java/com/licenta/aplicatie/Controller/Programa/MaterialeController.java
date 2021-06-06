@@ -21,7 +21,7 @@ public class MaterialeController {
     MaterialeService materialeService;
 
     @CrossOrigin
-    @RequestMapping(value = "/disciplina={disciplina}/tip={tip}", method = {RequestMethod.GET})
+    @RequestMapping(value = "/disciplina={disciplina}/tip={tip}/paths", method = {RequestMethod.GET})
     public ResponseEntity<?> getPathsForDiscipline(@PathVariable("tip") String tip, @PathVariable("disciplina") String disciplina) {
         try {
             Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
@@ -78,6 +78,18 @@ public class MaterialeController {
         try {
             Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
             List<Materiale> materiale = materialeService.getSelectedData(discip.getId_disciplina(), "link");
+            return new ResponseEntity<>(materiale, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/tip={tip}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getMateriale(@PathVariable("tip") String tip, @PathVariable("disciplina") String disciplina) {
+        try {
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            List<Materiale> materiale = materialeService.getAllDataSpecific(discip.getId_disciplina(), tip);
             return new ResponseEntity<>(materiale, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);

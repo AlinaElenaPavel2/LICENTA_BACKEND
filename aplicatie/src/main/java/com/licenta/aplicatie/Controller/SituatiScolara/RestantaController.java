@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 @RestController
-@RequestMapping("api/licenta/restante")
+@RequestMapping("api/licenta/reexaminari")
 public class RestantaController {
 
     @Autowired
@@ -59,6 +59,31 @@ public class RestantaController {
         try {
             Student student = studentService.getStudentByName(numeStudent);
             List<Restanta> restante = restantaService.getRestForStudents(student.getId_student());
+            return new ResponseEntity<>(restante, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/student={numeStudent}/tip", method = {RequestMethod.GET})
+    public ResponseEntity<?> getCountForStudents(@PathVariable("numeStudent") String numeStudent) {
+        try {
+            Student student = studentService.getStudentByName(numeStudent);
+            List<Integer> restante = restantaService.getListReex(student.getId_student());
+            int reex=restante.get(0)+restante.get(1);
+            switch (student.getAn()) {
+                case 1:
+                    restante.add(4-reex);
+                    break;
+                case 2:
+                    restante.add(16-reex);
+                    break;
+                case 3:
+                    restante.add(20-reex);
+                    break;
+            }
+
             return new ResponseEntity<>(restante, HttpStatus.OK);
         } catch (Exception ex) {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);

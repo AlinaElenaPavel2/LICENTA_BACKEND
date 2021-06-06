@@ -1,9 +1,12 @@
 package com.licenta.aplicatie.Controller.FileStorage;
 
+import com.licenta.aplicatie.Models.Programa.Disciplina;
 import com.licenta.aplicatie.Service.FileStorage.FileStorageService;
 import com.licenta.aplicatie.Service.FileStorage.UploadFileResponse;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
+import com.licenta.aplicatie.Service.Programa.DisciplinaService;
+import com.licenta.aplicatie.Service.Programa.MaterialeService;
 import com.licenta.aplicatie.Service.Users.UserService;
 //import org.apache.commons.io.FileUtils;
 import lombok.NonNull;
@@ -28,6 +31,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.regex.Pattern;
 
 
 @RestController
@@ -39,6 +43,11 @@ public class FileStorageController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private MaterialeService materialeService;
+    @Autowired
+    DisciplinaService disciplinaService;
 
     @CrossOrigin
     @PostMapping("/uploadFile")
@@ -179,6 +188,51 @@ public class FileStorageController {
                 .contentType(MediaType.parseMediaType(contentType))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
+    }
+    @CrossOrigin
+    @GetMapping("/{disciplina}/{tip}/{fileName}/description")
+    public ResponseEntity<?> getDescription(@PathVariable("fileName") String fileName, @PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
+        // Load file as Resource
+        String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
+
+        Resource resource = fileStorageService.loadFileAsResourceGivenPath(fileName, filePath);
+        try {
+            String dbPath = fileStorageService.getFileStoragePath();
+            System.out.println(dbPath);
+            System.out.println(getDbFilePath(dbPath) + fileName);
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            String description = materialeService.getDescription(discip.getId_disciplina(), tip, getDbFilePath(dbPath) + fileName);
+            System.out.println(description);
+            return new ResponseEntity<>(dbPath, HttpStatus.OK);
+
+        }catch (Exception ex)
+        {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        // Try to determine file's content type
+//        String contentType = null;
+//        try {
+//            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
+//        } catch (IOException ex) {
+////            logger.info("Could not determine file type.");
+//            System.out.println("Could not determine file type.");
+//        }
+//
+//        // Fallback to the default content type if type could not be determined
+//        if (contentType == null) {
+//            contentType = "application/octet-stream";
+//        }
+//
+//        return ResponseEntity.ok()
+//                .contentType(MediaType.parseMediaType(contentType))
+//                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+//                .body(resource);
+    }
+    public String getDbFilePath(String path)
+    {
+        System.out.println("-----------");
+        String[] arr=path.split(Pattern.quote(File.separator));
+        return arr[5]+"/"+arr[6]+"/"+arr[7]+"/"+arr[8]+"/"+arr[9]+"/"+arr[10]+"/"+arr[11]+"/";
     }
 
     @CrossOrigin
