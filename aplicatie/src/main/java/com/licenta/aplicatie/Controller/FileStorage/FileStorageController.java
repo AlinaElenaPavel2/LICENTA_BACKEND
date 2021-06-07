@@ -202,8 +202,8 @@ public class FileStorageController {
             System.out.println(getDbFilePath(dbPath) + fileName);
             Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
             String description = materialeService.getDescription(discip.getId_disciplina(), tip, getDbFilePath(dbPath) + fileName);
-            System.out.println(description);
-            return new ResponseEntity<>(dbPath, HttpStatus.OK);
+
+            return new ResponseEntity<>(description, HttpStatus.OK);
 
         }catch (Exception ex)
         {
@@ -238,23 +238,6 @@ public class FileStorageController {
     @CrossOrigin
     @GetMapping("/{disciplina}/{tip}")
     public ResponseEntity<?> getFile(@PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
-//        StringBuilder dispPath = new StringBuilder();
-//        StringBuilder filePath = new StringBuilder();
-//
-//        try {
-//            String[] arr = disciplina.split(" ");
-//            if (arr.length > 1) {
-//                for (String name : arr
-//                ) {
-//                    System.out.println(name);
-//                    dispPath.append(name).append("_");
-//                }
-//
-//            }
-//             filePath.append("/" + dispPath.substring(0, dispPath.length() - 1) + "/" + tip + "/");
-//        } catch (Exception ex) {
-//            dispPath.append(disciplina);
-//        }
         try {
             String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
             System.out.println(filePath);
@@ -273,7 +256,34 @@ public class FileStorageController {
         }
 
     }
+    @CrossOrigin
+    @GetMapping("/{disciplina}/{tip}/descriptions")
+    public ResponseEntity<?> getFilesDescriptions(@PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
+        try {
+            String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
+            System.out.println(filePath);
 
+            List<String> files = fileStorageService.getAllFilesFromDirectory(filePath);
+            List<String> fileDescription = new ArrayList<>();
+            System.out.println(files.size());
+            if(files.size()>0) {
+                for (String file : files
+                ) {
+
+                    String dbPath = fileStorageService.getFileStoragePath()+"\\" + getPath(disciplina) + "\\" + tip ;
+                    System.out.println(dbPath);
+                    System.out.println(getDbFilePath(dbPath) + file);
+                    Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+                    String description = materialeService.getDescription(discip.getId_disciplina(), tip, getDbFilePath(dbPath) + file);
+                    fileDescription.add(description);
+                }
+            }
+            return new ResponseEntity<>(fileDescription, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+
+    }
     public String getPath(String disciplina) {
         StringBuilder filePath = new StringBuilder();
         String[] arr = disciplina.split(" ");
