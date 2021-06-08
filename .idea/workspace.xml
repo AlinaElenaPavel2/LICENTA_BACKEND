@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61256e47-d211-4182-a1c7-f14b6115c92c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/FileStorage/FileStorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/FileStorage/FileStorageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/Files/Marketing/Auxiliare/Aplicatie_de_generare_teste-grila_Documentatie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/Files/Marketing/Auxiliare/LaboratorIA01-merged.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/Files/Marketing/Curs/2010s-layered-architecture.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/Files/Marketing/Curs/mysql-logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/Files/Marketing/Laborator/Arbori binari - operatii (2).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Programa/MaterialeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Programa/MaterialeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

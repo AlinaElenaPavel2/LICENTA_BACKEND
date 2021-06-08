@@ -95,4 +95,19 @@ public class MaterialeController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/tip={tip}", method = {RequestMethod.POST})
+    public ResponseEntity<?> addBook( @PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip,@RequestBody Materiale newMateriale) {
+        try {
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            newMateriale.setId_disciplina(discip.getId_disciplina());
+            newMateriale.setTip(tip);
+            System.out.println(newMateriale);
+            materialeService.addLink( newMateriale);
+            return new ResponseEntity<>("Save successfully saved!", HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }
