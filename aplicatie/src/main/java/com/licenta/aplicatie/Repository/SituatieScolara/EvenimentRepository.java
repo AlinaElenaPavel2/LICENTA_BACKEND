@@ -19,17 +19,13 @@ public interface EvenimentRepository extends JpaRepository<Eveniment, Integer> {
     List<Eveniment> findEvenimenteByDisciplina(int id_disciplina);
 
     @Transactional
-    @Query(value = "SELECT data FROM eveniment  WHERE id_disciplina = :id_disciplina", nativeQuery = true)
-    Optional<Eveniment> findDatesByDisciplina(int id_disciplina);
-
-    @Transactional
     @Modifying
-    @Query(value = "INSERT INTO eveniment (id_disciplina, data,titilu,descriere) values (:id_disciplina,:data,:titlu,:descriere)", nativeQuery = true)
-    Optional<Eveniment> addEveniment(int id_disciplina, Date data, String titlu, String descriere);
+    @Query(value = "INSERT INTO eveniment (id_disciplina, start_date,end_date,titlu,descriere) values (:id_disciplina,:start_date,:end_date,:titlu,:descriere)", nativeQuery = true)
+    Optional<Eveniment> addEveniment(int id_disciplina, String start_date,String end_date, String titlu, String descriere);
 
-    @Transactional
-    @Query(value = "DELETE FROM eveniment WHERE id_disciplina=:id_disciplina  AND data=:data AND titlu=:titlu AND descriere=:descriere", nativeQuery = true)
-    void deleteEveniment(int id_disciplina, Date data, String titlu, String descriere);
+    @Modifying
+    @Query(value = "DELETE FROM eveniment WHERE id_disciplina=:id_disciplina  AND start_date=:start_date AND titlu=:titlu", nativeQuery = true)
+    void deleteEveniment(int id_disciplina, String start_date, String titlu);
 
     @Transactional
     @Query(value = "SELECT * FROM eveniment WHERE id_disciplina=:id_disciplina and titlu LIKE '%EXAMEN%'", nativeQuery = true)

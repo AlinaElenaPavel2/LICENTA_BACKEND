@@ -16,11 +16,18 @@ import java.util.Date;
 @Table(name = "Eveniment")
 public class Eveniment {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
+
     @Column(name = "id_disciplina", nullable = false)
     private int id_disciplina;
 
-    @Column(name = "data", nullable = false)
-    private Date data;
+    @Column(name = "start_date", nullable = false)
+    private String start_date;
+
+    @Column(name = "end_date", nullable = false)
+    private String end_date;
 
     @Column(name = "titlu", nullable = false)
     private String titlu;
@@ -31,8 +38,10 @@ public class Eveniment {
     @Override
     public String toString() {
         return "Eveniment{" +
-                "id_disciplina=" + id_disciplina +
-                ", data=" + data +
+                "id=" + id +
+                ", id_disciplina=" + id_disciplina +
+                ", start_date=" + start_date +
+                ", end_date=" + end_date +
                 ", titlu='" + titlu + '\'' +
                 ", descriere='" + descriere + '\'' +
                 '}';

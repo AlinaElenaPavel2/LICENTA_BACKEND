@@ -49,7 +49,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/licenta/students/fullname=Popa Mihai",
+							"raw": "http://localhost:8080/api/licenta/students/fullname=Stoica Ana",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -59,7 +59,7 @@
 								"api",
 								"licenta",
 								"students",
-								"fullname=Popa Mihai"
+								"fullname=Stoica Ana"
 							]
 						}
 					},
@@ -374,7 +374,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/licenta/teachers/email=marian.popescu@profesor.tuiasi.ro",
+							"raw": "http://localhost:8080/api/licenta/teachers/email=badulescu.dana@profesor.tuiasi.ro",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -384,7 +384,7 @@
 								"api",
 								"licenta",
 								"teachers",
-								"email=marian.popescu@profesor.tuiasi.ro"
+								"email=badulescu.dana@profesor.tuiasi.ro"
 							]
 						}
 					},
@@ -451,6 +451,52 @@
 								"licenta",
 								"teachers",
 								"firstname=Mihaela"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "id by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/teachers/teacher/email=badulescu.dana@profesor.tuiasi.ro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"teachers",
+								"teacher",
+								"email=badulescu.dana@profesor.tuiasi.ro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "id by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/teachers/teacher/nume=Dana Badulescu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"teachers",
+								"teacher",
+								"nume=Dana Badulescu"
 							]
 						}
 					},
@@ -888,6 +934,15 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
 				}
 			]
 		},
@@ -924,7 +979,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/licenta/situatieScolara/student=Popa Mihai/medii",
+							"raw": "http://localhost:8080/api/licenta/situatieScolara/student=Sosea Sorina/medii",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -934,7 +989,7 @@
 								"api",
 								"licenta",
 								"situatieScolara",
-								"student=Popa Mihai",
+								"student=Sosea Sorina",
 								"medii"
 							]
 						}
@@ -964,6 +1019,15 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "medii pe semestre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
 				}
 			]
 		},
@@ -976,7 +1040,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/licenta/laborator/disciplina=Programarea calculatoarelor/grupa=1106",
+							"raw": "http://localhost:8080/api/licenta/laborator/disciplina=Marketing/grupa=1306",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -986,8 +1050,8 @@
 								"api",
 								"licenta",
 								"laborator",
-								"disciplina=Programarea calculatoarelor",
-								"grupa=1106"
+								"disciplina=Marketing",
+								"grupa=1306"
 							]
 						}
 					},
@@ -1128,6 +1192,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "New Request Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n\r\n        \"data\": \"2021-04-16\",\r\n        \"titlu\": \"TEMA_ADD\",\r\n        \"descriere\": \"TEMA_ADD descriere\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/evenimente/disciplina=Programarea calculatoarelor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"evenimente",
+								"disciplina=Programarea calculatoarelor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get exam",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "get exam Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
 				}
 			]
 		},
@@ -1199,6 +1321,15 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
 				}
 			]
 		},
@@ -1216,7 +1347,39 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/Pavel_Alina_Elena/Documents/Arbori binari - operatii.pdf"
+									"src": "/C:/Users/Pavel_Alina_Elena/Documents/data-structures-algorithms-and-applications-in-c-by-sartraj-sahani.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/uploadFile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"uploadFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadFile Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Pavel_Alina_Elena/Documents/data-structures-algorithms-and-applications-in-c-by-sartraj-sahani.pdf"
 								}
 							]
 						},
@@ -1250,15 +1413,287 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "http://localhost:8080/downloadFile/Lab10.pdf",
+							"raw": "http://localhost:8080/api/licenta//fileStorage/downloadFile/Lab10.pdf",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
+								"api",
+								"licenta",
+								"",
+								"fileStorage",
 								"downloadFile",
 								"Lab10.pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post profile picture",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "data:image/png;base64,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",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/uploadProfilePicture/user/id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"uploadProfilePicture",
+								"user",
+								"id=2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post profile picture Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "data:image/png;base64,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",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/uploadProfilePicture/user/role=profesor/id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"uploadProfilePicture",
+								"user",
+								"role=profesor",
+								"id=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get profile picture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/profilePicture/user/role=profesor/id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"profilePicture",
+								"user",
+								"role=profesor",
+								"id=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get profile picture Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/profilePicture/user/id=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"profilePicture",
+								"user",
+								"id=2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/Pavel_Alina_Elena/Downloads/InvA_Lab8.pdf",
+										"/C:/Users/Pavel_Alina_Elena/Downloads/LaboratorIA01-merged.pdf",
+										"/C:/Users/Pavel_Alina_Elena/Downloads/IA-intrebari-merged.pdf"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/uploadMultipleFiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"uploadMultipleFiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/Pavel_Alina_Elena/Downloads/InvA_Lab8.pdf",
+										"/C:/Users/Pavel_Alina_Elena/Downloads/LaboratorIA01-merged.pdf",
+										"/C:/Users/Pavel_Alina_Elena/Downloads/IA-intrebari-merged.pdf"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/uploadMultipleFiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"uploadMultipleFiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/Marketing/Curs/mysql-logo.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"Marketing",
+								"Curs",
+								"mysql-logo.jpg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy 3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/Marketing/Laborator/Lab10.pdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"Marketing",
+								"Laborator",
+								"Lab10.pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy 4",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/fileStorage/Marketing/Laborator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"fileStorage",
+								"Marketing",
+								"Laborator"
 							]
 						}
 					},
@@ -1295,6 +1730,28 @@
 								"licenta",
 								"qrCode",
 								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/qrCode/generate2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"qrCode",
+								"generate2"
 							]
 						}
 					},
@@ -1366,6 +1823,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"subject\": \"Hello\",\r\n     \"text\": \"email from postman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8080/api/licenta/sendEmail/email=alina_pavel98@yahoo.com",
 							"protocol": "http",
@@ -1403,6 +1869,214 @@
 								"email=alina_pavel98@yahoo.com"
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Others",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "New Request Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/disciplina/titlu=Marketing/grupa=1106/laborator=3/studenti",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"disciplina",
+								"titlu=Marketing",
+								"grupa=1106",
+								"laborator=3",
+								"studenti"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Materiale",
+			"item": [
+				{
+					"name": "Get description",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/materiale/disciplina=Marketing/tip=link/descriere",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"materiale",
+								"disciplina=Marketing",
+								"tip=link",
+								"descriere"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get titles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/materiale/disciplina=Marketing/tip=link/titles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"materiale",
+								"disciplina=Marketing",
+								"tip=link",
+								"titles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add link",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"path\":\"aaa\",\r\n    \"descriere\":\"bbb\",\r\n     \"titlu\":\"ccc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/materiale/disciplina=Marketing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"materiale",
+								"disciplina=Marketing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"path\":\"aaa\",\r\n    \"descriere\":\"bbb\",\r\n     \"titlu\":\"ccc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/licenta/materiale/disciplina=Marketing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"licenta",
+								"materiale",
+								"disciplina=Marketing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "get files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "get description for some ppath",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "get description for some ppath Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "get description for Curs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
 					},
 					"response": []
 				}

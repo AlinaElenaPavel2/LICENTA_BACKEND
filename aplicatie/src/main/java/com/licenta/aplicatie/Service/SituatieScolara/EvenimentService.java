@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,10 +24,26 @@ public class EvenimentService {
             throw new Exception("There are no eveniment for this discipline");
         }
     }
-
+    public List<Eveniment> getEvenimente2(int id_disciplina) throws Exception {
+        List<Eveniment> evenimente = evenimentRepository.findAll();
+        List<Eveniment> evenim=new ArrayList<>();
+        for (Eveniment ev:evenimente
+             ) {
+            if(ev.getId_disciplina()==id_disciplina)
+            {
+                evenim.add(ev);
+            }
+        }
+        if (evenim.size() > 0) {
+            return evenim;
+        } else {
+            throw new Exception("There are no eveniment for this discipline");
+        }
+    }
     public void saveEveniment(Eveniment newEveniment) throws Exception {
         try {
-            evenimentRepository.addEveniment(newEveniment.getId_disciplina(), newEveniment.getData(), newEveniment.getTitlu(), newEveniment.getDescriere());
+//            evenimentRepository.addEveniment(newEveniment.getId_disciplina(), newEveniment.getStart_date(),newEveniment.getEnd_date(), newEveniment.getTitlu(), newEveniment.getDescriere());
+            evenimentRepository.save(newEveniment);
         } catch (Exception ex) {
             throw new Exception("Evenimentul nu a fost adaugat");
         }
@@ -34,7 +51,7 @@ public class EvenimentService {
 
     public void deleteEveniment(Eveniment newEveniment) throws Exception {
         try {
-            evenimentRepository.deleteEveniment(newEveniment.getId_disciplina(), newEveniment.getData(), newEveniment.getTitlu(), newEveniment.getDescriere());
+            evenimentRepository.deleteEveniment(newEveniment.getId_disciplina(), newEveniment.getStart_date(), newEveniment.getTitlu());
         } catch (Exception ex) {
             System.out.println(ex.toString());
             throw new Exception("Evenimentul nu a fost sters");
@@ -65,6 +82,21 @@ public class EvenimentService {
             return eveniment.get();
         } else {
             throw new Exception("There are no eveniment for this discipline");
+        }
+    }
+
+    public Eveniment updateEveniment(int id, Eveniment newEveniment) throws Exception {
+        Optional<Eveniment> eveniment = evenimentRepository.findById(id);
+        if (eveniment.isPresent()) {
+            Eveniment _eveniment = eveniment.get();
+            _eveniment.setStart_date(newEveniment.getStart_date());
+            _eveniment.setEnd_date(newEveniment.getEnd_date());
+            _eveniment.setTitlu(newEveniment.getTitlu());
+            _eveniment.setDescriere(newEveniment.getDescriere());
+            evenimentRepository.save(_eveniment);
+            return _eveniment;
+        } else {
+            throw new Exception("The id does not exist!");
         }
     }
 }
