@@ -230,7 +230,7 @@ public class FileStorageController {
     }
     public String getDbFilePath(String path)
     {
-        System.out.println("-----------");
+//        System.out.println("-----------");
         String[] arr=path.split(Pattern.quote(File.separator));
         return arr[5]+"/"+arr[6]+"/"+arr[7]+"/"+arr[8]+"/"+arr[9]+"/"+arr[10]+"/"+arr[11]+"/";
     }
@@ -239,11 +239,12 @@ public class FileStorageController {
     @GetMapping("/{disciplina}/{tip}")
     public ResponseEntity<?> getFile(@PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
         try {
-            String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
+//            String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
+            String filePath = "\\" + getPath(disciplina) + "\\" + tip + "\\";
             System.out.println(filePath);
             List<String> files = fileStorageService.getAllFilesFromDirectory(filePath);
             List<String> filesUri = new ArrayList<>();
-            System.out.println(files.size());
+//            System.out.println(files.size());
             if(files.size()>0) {
                 for (String file : files
                 ) {

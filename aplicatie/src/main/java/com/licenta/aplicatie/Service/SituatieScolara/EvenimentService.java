@@ -37,7 +37,7 @@ public class EvenimentService {
         if (evenim.size() > 0) {
             return evenim;
         } else {
-            throw new Exception("There are no eveniment for this discipline");
+            return null;
         }
     }
     public void saveEveniment(Eveniment newEveniment) throws Exception {
@@ -80,6 +80,23 @@ public class EvenimentService {
         Optional<Eveniment> eveniment = evenimentRepository.getEveniment(id_disciplina);
         if (eveniment.isPresent()) {
             return eveniment.get();
+        } else {
+            throw new Exception("There are no eveniment for this discipline");
+        }
+    }
+
+    public Eveniment getEveniment2(int id_disciplina) throws Exception {
+        List<Eveniment> evenimente = evenimentRepository.findAll();
+
+        if (evenimente.size()>0) {
+            for (Eveniment ev:evenimente
+                 ) {
+                if(ev.getTitlu().contains("EXAMEN") && ev.getId_disciplina()==id_disciplina)
+                {
+                    return ev;
+                }
+            }
+            return null;
         } else {
             throw new Exception("There are no eveniment for this discipline");
         }

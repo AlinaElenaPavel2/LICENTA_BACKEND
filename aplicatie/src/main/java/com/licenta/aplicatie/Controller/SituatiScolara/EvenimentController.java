@@ -82,8 +82,11 @@ public class EvenimentController {
             List<Eveniment> evenimente = new ArrayList<>();
             for (int i = 4; i < 8; i++) {
                 System.out.println(discipline.get(i).getId_disciplina());
-                Eveniment ev = evenimentService.getEveniment(discipline.get(i).getId_disciplina());
-                evenimente.add(ev);
+//                Eveniment ev = evenimentService.getEveniment(discipline.get(i).getId_disciplina());
+                Eveniment ev = evenimentService.getEveniment2(discipline.get(i).getId_disciplina());
+                if(ev!=null) {
+                    evenimente.add(ev);
+                }
             }
             return new ResponseEntity<>(evenimente, HttpStatus.CREATED);
 
@@ -129,19 +132,16 @@ public class EvenimentController {
             Student student = studentService.getStudentByName(nume);
             List<Disciplina> discipline = programaScolaraService.getDiscipline(student.getProgram_studiu(), student.getSpecializare(), student.getAn(),2);
             List<Eveniment> evenimente = new ArrayList<>();
-            for (Disciplina d:discipline
-                 ) {
-                System.out.println(d.getId_disciplina());
-            }
-            for (int i = 4; i < discipline.size(); i++) {
-                System.out.println(discipline.get(i).getId_disciplina());
+            for (int i = 0; i < discipline.size(); i++) {
                 List<Eveniment> ev = evenimentService.getEvenimente2(discipline.get(i).getId_disciplina());
-                evenimente.addAll(ev);
+                if(ev!=null) {
+                    evenimente.addAll(ev);
+                }
             }
-            return new ResponseEntity<>(evenimente, HttpStatus.CREATED);
-
+            System.out.println(evenimente.size());
+            return new ResponseEntity<>(evenimente, HttpStatus.OK);
         } catch (Exception ex) {
-            return new ResponseEntity<>("Eveniments not found!", HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>("Eveniments not found! "+ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }

@@ -4,6 +4,7 @@ import com.licenta.aplicatie.POJO.FileStorageProperties;
 import com.licenta.aplicatie.POJO.FilesExceptions.FileNotFoundException;
 import com.licenta.aplicatie.POJO.FilesExceptions.FileStorageException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.logging.Slf4JLoggingSystem;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Service
 public class FileStorageService {
@@ -98,17 +97,52 @@ public class FileStorageService {
     }
 
     public List<String> getAllFilesFromDirectory(String path) {
-        List<String> fileNames = new ArrayList<>();
-        File directoryPath = new File(this.fileStorageLocation.toString() + path);
-        //List of all files and directories
-        File[] filesList = directoryPath.listFiles();
-        if (filesList != null) {
-            System.out.println("List of files and directories in the specified directory:");
-            for (File file : filesList) {
-                System.out.println("File name: " + file.getName());
-                fileNames.add(file.getName());
+//        List<String> fileNames = new ArrayList<>();
+//        File directoryPath = new File(this.fileStorageLocation.toString() + path);
+//        //List of all files and directories
+//        System.out.println(this.fileStorageLocation.toString()+path);
+//        File[] filesList = directoryPath.listFiles();
+//        if (filesList != null) {
+//            System.out.println("List of files and directories in the specified directory:");
+//            for (File file : filesList) {
+//                System.out.println("File name: " + file.getName());
+//                fileNames.add(file.getName());
+//            }
+//        }
+//        return fileNames;
+        List<String> fileList = new ArrayList<>();
+//        System.out.println("************");
+//        System.out.println(this.fileStorageLocation.toString());
+//        System.out.println(checkPath(this.fileStorageLocation.toString()));
+//        System.out.println(normalizePath(this.fileStorageLocation.toString()));
+//        System.out.println("************");
+        String fullPath=normalizePath(this.fileStorageLocation.toString()) + path;
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(fullPath))) {
+            for (Path pathFile : stream) {
+                if (!Files.isDirectory(pathFile)) {
+                    fileList.add(pathFile.getFileName()
+                            .toString());
+                }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return fileNames;
+        return fileList;
+    }
+
+    private boolean checkPath(String path) {
+        String[] arr = path.split(Pattern.quote(File.separator));
+        if (arr.length > 10) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private String normalizePath(String path) {
+        String[] arr = path.split(Pattern.quote(File.separator));
+
+        return arr[0] + "/" + arr[1] + "/" + arr[2] + "/" + arr[3] + "/" + arr[4] + "/" + arr[5] + "/" + arr[6] + "/" + arr[7] + "/" + arr[8] + "/" + arr[9] ;
+
     }
 }
