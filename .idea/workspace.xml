@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61256e47-d211-4182-a1c7-f14b6115c92c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/FileStorage/FileStorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/FileStorage/FileStorageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/EvenimentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/EvenimentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/SituatieScolara/EvenimentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/SituatieScolara/EvenimentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/FileStorage/FileStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/FileStorage/FileStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/SituatieScolara/EvenimentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/SituatieScolara/EvenimentService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
