@@ -11,18 +11,18 @@ import java.util.List;
 @Repository
 public interface PrezentaRepository extends JpaRepository<Prezenta,Integer> {
     @Transactional
-    @Query(value = "SELECT * FROM prezenta  WHERE id_disciplina = :id_disciplina", nativeQuery = true)
+    @Query(value = "SELECT * FROM prezentaSecond  WHERE id_disciplina = :id_disciplina", nativeQuery = true)
     List<Prezenta> findPrezente(int id_disciplina);
 
     @Transactional
-    @Query(value = "SELECT * FROM prezenta  WHERE id_student = :id_student", nativeQuery = true)
+    @Query(value = "SELECT * FROM prezentaSecond  WHERE id_student = :id_student", nativeQuery = true)
     List<Prezenta> findPrezenteByStudent(int id_student);
 
     @Transactional
-    @Query(value = "SELECT * FROM prezenta  WHERE laborator = :laborator", nativeQuery = true)
+    @Query(value = "SELECT * FROM prezentaSecond  WHERE laborator = :laborator", nativeQuery = true)
     List<Prezenta> findPrezenteByLaborator(int laborator);
 
-    @Transactional
-    @Query(value = "SELECT * FROM prezenta  WHERE id_disciplina = :id_disciplina AND id_student = :id_student", nativeQuery = true)
+
+    @Query(value = "SELECT * FROM prezentaSecond  WHERE id_disciplina = :id_disciplina AND id_student = :id_student", nativeQuery = true)
     List<Prezenta> findPrezente(int id_disciplina,int id_student );
 }

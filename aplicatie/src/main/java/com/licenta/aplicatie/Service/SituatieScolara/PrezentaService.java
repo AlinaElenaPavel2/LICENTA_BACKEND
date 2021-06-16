@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -53,6 +54,29 @@ public class PrezentaService {
         if(prezente.size()>0)
         {
             return prezente;
+        }else
+        {
+            throw new Exception("There is no presence for this discipline");
+        }
+    }
+
+    public List<Prezenta> getPrezenteSecond(int id_disciplina,int id_student) throws Exception {
+        List<Prezenta> prezente=prezentaRepository.findPrezenteByStudent(id_student);
+        List<Prezenta> prezFilter=new ArrayList<>();
+        System.out.println(prezente.size());
+        for (Prezenta p:prezente
+             ) {
+            System.out.println(p.toString());
+            if(p.getId_disciplina()==id_disciplina )
+            {
+                prezFilter.add(p);
+            }
+        }
+        System.out.println(prezFilter.size());
+
+        if(prezFilter.size()>0)
+        {
+            return prezFilter;
         }else
         {
             throw new Exception("There is no presence for this discipline");

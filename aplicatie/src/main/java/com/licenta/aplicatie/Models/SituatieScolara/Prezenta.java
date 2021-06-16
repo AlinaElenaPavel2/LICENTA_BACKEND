@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -16,9 +13,13 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "Prezenta")
+@Table(name = "prezentaSecond")
 public class Prezenta {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
+
     @Column(name = "id_disciplina", nullable = false)
     private int id_disciplina;
 

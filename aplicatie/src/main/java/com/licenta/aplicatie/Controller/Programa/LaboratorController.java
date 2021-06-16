@@ -81,4 +81,17 @@ public class LaboratorController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/profesor={profesor}", method = {RequestMethod.GET})
+    public ResponseEntity<?> getProfesori( @PathVariable("disciplina") String disciplina,@PathVariable("profesor") String profesor) {
+        try {
+            Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
+            Profesor prof=profesorService.getProfesorByName(profesor);
+            List<String> grupe=laboratorService.getGroupsByProfesorAndDiscip(discip.getId_disciplina(),prof.getId_profesor());
+            return new ResponseEntity<>(grupe, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }
