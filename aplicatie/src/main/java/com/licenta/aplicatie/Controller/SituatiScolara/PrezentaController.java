@@ -4,7 +4,7 @@ import com.licenta.aplicatie.Models.Programa.Disciplina;
 import com.licenta.aplicatie.Models.SituatieScolara.Prezenta;
 import com.licenta.aplicatie.Models.Users.Student;
 import com.licenta.aplicatie.Service.Programa.DisciplinaService;
-import com.licenta.aplicatie.Service.SituatieScolara.PrezentaService;
+import com.licenta.aplicatie.Service.SituatieScolara.*;
 import com.licenta.aplicatie.Service.Users.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -8,7 +8,7 @@ import com.licenta.aplicatie.Models.Users.Student;
 import com.licenta.aplicatie.Service.Programa.DisciplinaService;
 import com.licenta.aplicatie.Service.Programa.LaboratorService;
 import com.licenta.aplicatie.Service.Programa.ProgramaScolaraService;
-import com.licenta.aplicatie.Service.SituatieScolara.PrezentaService;
+import com.licenta.aplicatie.Service.SituatieScolara.*;
 import com.licenta.aplicatie.Service.Users.ProfesorService;
 import com.licenta.aplicatie.Service.Users.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +62,8 @@ public class DisciplineStudents {
         try {
             Disciplina disciplina = disciplinaService.getDisciplinaByTitlu(titlu);
             Student student_data = studentService.getStudentByName(student);
+            System.out.println(disciplina.getId_disciplina());
+            System.out.println(student_data.getId_student());
             List<Prezenta> prezentaList = prezentaService.getPrezente(disciplina.getId_disciplina(),student_data.getId_student());
 
             HashMap<String, Long> prezente = new HashMap<>();
