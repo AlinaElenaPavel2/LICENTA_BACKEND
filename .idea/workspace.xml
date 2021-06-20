@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="61256e47-d211-4182-a1c7-f14b6115c92c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/DisciplineStudents/DisciplineStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/DisciplineStudents/DisciplineStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/PrezentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/PrezentaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/CatalogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/CatalogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/EvenimentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/EvenimentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/SituatieScolara/Catalog.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/SituatieScolara/Catalog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/SituatieScolara/CatalogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/SituatieScolara/CatalogService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

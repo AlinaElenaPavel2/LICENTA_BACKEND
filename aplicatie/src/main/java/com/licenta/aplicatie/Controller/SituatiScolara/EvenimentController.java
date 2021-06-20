@@ -84,7 +84,7 @@ public class EvenimentController {
                 System.out.println(discipline.get(i).getId_disciplina());
 //                Eveniment ev = evenimentService.getEveniment(discipline.get(i).getId_disciplina());
                 Eveniment ev = evenimentService.getEveniment2(discipline.get(i).getId_disciplina());
-                if(ev!=null) {
+                if (ev != null) {
                     evenimente.add(ev);
                 }
             }
@@ -130,18 +130,31 @@ public class EvenimentController {
     public ResponseEntity<?> getEvenimenteD(@PathVariable("nume") String nume) {
         try {
             Student student = studentService.getStudentByName(nume);
-            List<Disciplina> discipline = programaScolaraService.getDiscipline(student.getProgram_studiu(), student.getSpecializare(), student.getAn(),2);
+            List<Disciplina> discipline = programaScolaraService.getDiscipline(student.getProgram_studiu(), student.getSpecializare(), student.getAn(), 2);
             List<Eveniment> evenimente = new ArrayList<>();
             for (int i = 0; i < discipline.size(); i++) {
                 List<Eveniment> ev = evenimentService.getEvenimente2(discipline.get(i).getId_disciplina());
-                if(ev!=null) {
+                if (ev != null) {
                     evenimente.addAll(ev);
                 }
             }
             System.out.println(evenimente.size());
             return new ResponseEntity<>(evenimente, HttpStatus.OK);
         } catch (Exception ex) {
-            return new ResponseEntity<>("Eveniments not found! "+ex.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Eveniments not found! " + ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/examen", method = {RequestMethod.GET})
+    public ResponseEntity<?> getEvenimentExamtByDisciplina(@PathVariable("disciplina") String disciplina) {
+        try {
+            Disciplina dis = disciplinaService.getDisciplinaByTitlu(disciplina);
+            System.out.println(dis.getId_disciplina());
+            Eveniment eveniment = evenimentService.getEveniment2(dis.getId_disciplina());
+            return new ResponseEntity<>(eveniment, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }

@@ -21,16 +21,16 @@ public class Catalog {
     @Column(name = "id_disciplina", nullable = false)
     private int id_disciplina;
 
-    @Column(name = "examen", nullable = false)
+    @Column(name = "examen")
     private Integer examen;
 
-    @Column(name = "laborator", nullable = false)
+    @Column(name = "laborator")
     private Integer laborator;
 
-    @Column(name = "partial", nullable = false)
+    @Column(name = "partial")
     private Integer partial;
 
-    @Column(name = "proiect", nullable = false)
+    @Column(name = "proiect")
     private Integer proiect;
 
     @Override
