@@ -82,4 +82,12 @@ public class PrezentaService {
             throw new Exception("There is no presence for this discipline");
         }
     }
+
+    public Prezenta addPrezenta(Prezenta newPrezenta) throws Exception {
+//        prezentaRepository.save(newPrezenta);
+        System.out.println(newPrezenta);
+        prezentaRepository.adaugarePrezenta(newPrezenta.getId_disciplina(),newPrezenta.getId_student(),newPrezenta.getLaborator(),newPrezenta.getData(),newPrezenta.getPrezenta());
+
+        return newPrezenta;
+    }
 }

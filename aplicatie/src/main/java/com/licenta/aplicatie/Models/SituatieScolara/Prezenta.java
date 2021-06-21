@@ -26,13 +26,13 @@ public class Prezenta {
     @Column(name = "id_student", nullable = false)
     private int id_student;
 
-    @Column(name = "laborator", nullable = false)
+    @Column(name = "laborator")
     private int laborator;
 
-    @Column(name = "data", nullable = false)
-    private Date data;
+    @Column(name = "data")
+    private String data;
 
-    @Column(name = "prezenta", nullable = false)
+    @Column(name = "prezenta")
     private String prezenta;
 
     @Override

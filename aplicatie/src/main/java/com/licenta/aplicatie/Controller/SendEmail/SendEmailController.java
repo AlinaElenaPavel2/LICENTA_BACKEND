@@ -15,6 +15,7 @@ public class SendEmailController {
 
     @Autowired
     private EmailService sendEmailService;
+    private static final String QR_CODE_IMAGE_PATH = "aplicatie/src/main/resources/QRCodes/QRCode";
 
     @CrossOrigin
     @RequestMapping(value = "/email={emailTo}", method = {RequestMethod.POST})
@@ -26,14 +27,14 @@ public class SendEmailController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-    @CrossOrigin
-    @RequestMapping(value = "/attachment/email={emailTo}", method = {RequestMethod.POST})
-    public ResponseEntity<?> sendEmailWithAttachment(@PathVariable("emailTo") String emailTo) {
-        try {
-            sendEmailService.sendEmailWithAttachment(emailTo);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception ex) {
-            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
-        }
-    }
+//    @CrossOrigin
+//    @RequestMapping(value = "/attachment/email={emailTo}", method = {RequestMethod.POST})
+//    public ResponseEntity<?> sendEmailWithAttachment(@PathVariable("emailTo") String emailTo) {
+//        try {
+//            sendEmailService.sendEmailWithAttachment(emailTo,QR_CODE_IMAGE_PATH+"_Marketing_Sosea Sorina_laborator_12.png",emailTo);
+//            return new ResponseEntity<>(HttpStatus.OK);
+//        } catch (Exception ex) {
+//            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+//        }
+//    }
 }

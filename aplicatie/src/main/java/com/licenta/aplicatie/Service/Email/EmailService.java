@@ -2,16 +2,16 @@ package com.licenta.aplicatie.Service.Email;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.mail.javamail.*;
+import org.springframework.mail.javamail.*;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.*;
+import org.springframework.mail.javamail.*;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -23,43 +23,18 @@ public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public void sendEmail(String emailAdress,String subject,String text) {
-        SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(emailAdress);
-
-        msg.setSubject(subject);
-        msg.setText(text);
-
-        javaMailSender.send(msg);
+    public void sendEmail(String emailAdress,String subject,String text) throws MessagingException {
+//        SimpleMailMessage msg = new SimpleMailMessage();
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, false);
+        helper.setTo(emailAdress);
+        helper.setSubject(subject);
+        helper.setText(text);
+        javaMailSender.send(message);
 
     }
 
-    public void sendEmailWithAttachment(String emailAdress) throws MessagingException, IOException {
-//--------------- IT WORKS BUT THE IMEGE SHOULD BE UPLOAD O, NOT LOCAL
-//        MimeMessage message = javaMailSender.createMimeMessage();
-//
-//        // true = multipart message
-//        MimeMessageHelper helper = new MimeMessageHelper(message, true);
-//
-//        helper.setTo(emailAdress);
-//
-//        helper.setSubject("Testing from Spring Boot");
-//
-//        // default = text/plain
-//        //helper.setText("Check attachment for image!");
-//
-//        // true = text/html
-////        helper.setText("<h1>Check attachment for image!</h1>", true);
-//        message.setContent
-//                ("<h1>This is a test</h1>"
-//                                + "<img src=\"https://www.linkpicture.com/q/QRCode.png\">",
-//                        "text/html");//        // hardcoded a file path
-//        FileSystemResource file = new FileSystemResource(new File("aplicatie/src/main/resources/QRCodes/QRCode.png"));
-//
-//        helper.addAttachment("QRCode.png", file);
-//
-//        javaMailSender.send(message);
-
+    public void sendEmailWithAttachment(String emailAdress,String pathname,String studentName,Integer laborator,String materie) throws MessagingException, IOException {
         //--------------- TRYING ANOTHER WAY
 
         MimeMessage message = javaMailSender.createMimeMessage();
@@ -67,25 +42,22 @@ public class EmailService {
         helper.setTo(emailAdress);
         helper.setSubject("Testing from Spring Boot");
 
-        helper.setSubject("Email with Inline images Example");
+        helper.setSubject("Validare prezenta - laborator "+laborator+" - "+materie);
         helper.setText(
                 "<html>"
                         + "<body>"
-                        + "<div>Dear student,"
-                        + "<div><strong>Add the image to the right:</strong></div>"
+                        + "<div>"+studentName+","
+                        + "<div style=\"margin-top:20px;\"><strong>Pentru a valida prezenta pentru laboratorul "+laborator+" de "+materie+" scaneaza codul QR atasat! </strong></div>"
                         + "<div>"
                         + "<img src='cid:rightSideImage' style='float:right;width:150px;height:150px;'/>"
-                        + "<div>Adding a inline resource/image on to the right of the paragraph.</div>"
-                        + "<div>Adding a inline resource/image on to the right of the paragraph.</div>"
-                        + "<div>Adding a inline resource/image on to the right of the paragraph.</div>"
-                        + "<div>Adding a inline resource/image on to the right of the paragraph.</div>"
-                        + "</div>"
-                        + "<div>Thanks,</div>"
-                        + "kalliphant"
+                        +"<br>"
+                        +"<div style=\"color:red\">Timpul de scanarae a codului este 10 min din momemntul in care ati primit emailul!</div>"
+                        +"<br>"
+                        +"<div>In cazul in care nu a fost scanat codul QR in intervalul mentionat mai sus se veti avea absent pentru laboratorul curent. </div>"
                         + "</div></body>"
                         + "</html>", true);
         helper.addInline("rightSideImage",
-                new File("D:/LICENTA/BACKEND/LICENTA_BACKEND/aplicatie/src/main/resources/QRCodes/QRCode.png"));
+                new File(pathname));
 
         javaMailSender.send(message);
 
