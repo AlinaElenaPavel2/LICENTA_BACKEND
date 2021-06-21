@@ -66,7 +66,7 @@ public class PrezentaController {
 
     @CrossOrigin
     @RequestMapping(value = "/disciplina={disciplina}/student={student}/laborator={laborator}/durata={durata}", method = {RequestMethod.POST})
-    public ResponseEntity<?> trimitereEmailPrezente(@PathVariable("disciplina") String disciplina, @PathVariable("student") String student, @PathVariable("laborator") Integer laborator, @PathVariable("durata") Integer durata) {
+    public ResponseEntity<?> adaugarePrezenta(@PathVariable("disciplina") String disciplina, @PathVariable("student") String student, @PathVariable("laborator") Integer laborator, @PathVariable("durata") Integer durata) {
         try {
             Disciplina dis = disciplinaService.getDisciplinaByTitlu(disciplina);
             Student stud = studentService.getStudentByName(student);
@@ -91,5 +91,31 @@ public class PrezentaController {
         }
     }
 
+    @CrossOrigin
+    @RequestMapping(value = "/disciplina={disciplina}/student={student}/laborator={laborator}/durata={durata}/recuperat", method = {RequestMethod.POST})
+    public ResponseEntity<?> adaugarePrezentaRecuperari(@PathVariable("disciplina") String disciplina, @PathVariable("student") String student, @PathVariable("laborator") Integer laborator, @PathVariable("durata") Integer durata) {
+        try {
+            Disciplina dis = disciplinaService.getDisciplinaByTitlu(disciplina);
+            Student stud = studentService.getStudentByName(student);
+            DateTimeFormatter date = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime now = LocalDateTime.now();
+            String dateString = date.format(now);
+            Prezenta prezenta = new Prezenta();
+            prezenta.setId_disciplina(dis.getId_disciplina());
+            prezenta.setId_student(stud.getId_student());
+            prezenta.setLaborator(laborator);
+            prezenta.setData(dateString);
+            if(durata<10) {
+                prezenta.setPrezenta("recuperat");
+            }else
+            {
+                prezenta.setPrezenta("absent");
+            }
+            prezentaService.addPrezenta(prezenta);
+            return new ResponseEntity<>(prezenta, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

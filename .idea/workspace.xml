@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61256e47-d211-4182-a1c7-f14b6115c92c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/LICENTA_BACKEND.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LICENTA_BACKEND.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_core_3_4_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/QRGenerator/QRCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/QRGenerator/QRCodeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SendEmail/SendEmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SendEmail/SendEmailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/PrezentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/SituatiScolara/PrezentaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/SituatieScolara/Prezenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/SituatieScolara/Prezenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/POJO/QRCodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/POJO/QRCodeGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/SituatieScolara/PrezentaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Repository/SituatieScolara/PrezentaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Email/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/SituatieScolara/PrezentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/SituatieScolara/PrezentaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/QRCodes/QRCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/resources/QRCodes/QRCode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/resources/QRCodes/QRCode_Marketing_Sosea Sorina_laborator_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/resources/QRCodes/QRCode_Marketing_Sosea Sorina_laborator_8.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
