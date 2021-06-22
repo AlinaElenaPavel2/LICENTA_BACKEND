@@ -15,6 +15,9 @@ import javax.persistence.*;
 @Table(name = "situatie_scolara")
 public class SituatieScolara {
     @Id
+    @Column(name = "id", nullable = false)
+    private int id;
+
     @Column(name = "id_student", nullable = false)
     private int id_student;
 

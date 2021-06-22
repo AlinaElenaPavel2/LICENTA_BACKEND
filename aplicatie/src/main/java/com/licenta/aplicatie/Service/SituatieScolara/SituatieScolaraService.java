@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,21 +38,23 @@ public class SituatieScolaraService {
         }
     }
 
-    public List<SituatieScolara> getMediiForDiscipline(int id_student) throws Exception {
-        List<SituatieScolara> medii=situatieScolaraRepository.findMediiForDisciplines(id_student);
+    public SituatieScolara getMediiForDisciplina(int id_student,int id_disciplina) throws Exception {
+        List<SituatieScolara> medii=situatieScolaraRepository.findAll();
+
+        for (SituatieScolara medie:medii
+             ) {
+            if(medie.getId_student()==id_student && medie.getId_disciplina() == id_disciplina)
+            {
+                return medie;
+            }
+        }
 //        for (SituatieScolara s:medii
 //             ) {
 //            System.out.println("Service");
 //            System.out.println(s.getId_disciplina());
 //            System.out.println(s.getMedie());
 //        }
-        if (medii.size()>0)
-        {
-            return medii;
-        }else
-        {
-            throw  new Exception("It is no student for this discipline");
-        }
+        return null;
     }
 
     public List<Integer> getDiscipline(int id_student) throws Exception {

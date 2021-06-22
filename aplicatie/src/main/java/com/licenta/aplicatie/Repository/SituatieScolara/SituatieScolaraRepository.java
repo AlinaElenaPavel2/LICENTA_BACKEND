@@ -25,6 +25,6 @@ public interface SituatieScolaraRepository extends JpaRepository<SituatieScolara
     List<Integer> findDiscipline( int id_student);
 
     @Transactional
-    @Query(value = "SELECT * FROM situatie_scolara  WHERE id_student = :id_student", nativeQuery = true)
-    List<SituatieScolara> findMediiForDisciplines( int id_student);
+    @Query(value = "SELECT * FROM situatie_scolara  WHERE id_student = :id_student and id_disciplina=:id_disciplina", nativeQuery = true)
+    List<SituatieScolara> findMediiForDisciplines( int id_student,int id_disciplina);
 }

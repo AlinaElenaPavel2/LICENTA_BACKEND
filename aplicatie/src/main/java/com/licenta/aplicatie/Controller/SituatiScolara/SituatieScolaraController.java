@@ -6,6 +6,7 @@ import com.licenta.aplicatie.Models.SituatieScolara.Evaluare;
 import com.licenta.aplicatie.Models.SituatieScolara.SituatieScolara;
 import com.licenta.aplicatie.Models.Users.Student;
 import com.licenta.aplicatie.Service.Programa.DisciplinaService;
+import com.licenta.aplicatie.Service.Programa.ProgramaScolaraService;
 import com.licenta.aplicatie.Service.SituatieScolara.SituatieScolaraService;
 import com.licenta.aplicatie.Service.Users.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,8 @@ public class SituatieScolaraController {
     DisciplinaService disciplinaService;
     @Autowired
     StudentService studentService;
-
+    @Autowired
+    ProgramaScolaraService programaScolaraService;
 
     @CrossOrigin
     @RequestMapping(value = "/disciplina={nume}/student={numeStudent}/medie", method = {RequestMethod.GET})
@@ -124,4 +126,45 @@ public class SituatieScolaraController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/student={nume}/an={an}/medii", method = {RequestMethod.GET})
+    public ResponseEntity<?> getMediiDisicpline(@PathVariable("nume") String nume, @PathVariable("an") Integer an) throws Exception {
+        try {
+            Student student = studentService.getStudentByName(nume);
+            List<Disciplina> disciplineSem1 = programaScolaraService.getDiscipline(student.getProgram_studiu(), student.getSpecializare(), an, 1);
+            List<Disciplina> disciplineSem2 = programaScolaraService.getDiscipline(student.getProgram_studiu(), student.getSpecializare(), an, 2);
+            List<Integer> medii1 = new ArrayList<>();
+            List<Integer> medii2 = new ArrayList<>();
+            List<Student> studenti = studentService.findStudentsBySpecializareAndAn(student.getSpecializare(), an);
+            Map map = new HashMap();
+
+            for (Student s : studenti) {
+                for (Disciplina disciplina : disciplineSem1
+                ) {
+                    System.out.println(disciplina.getId_disciplina());
+                    medii1.add(situatieScolaraService.getMediiForDisciplina(s.getId_student(), disciplina.getId_disciplina()).getMedie());
+
+                }
+            }
+            for (Student s : studenti) {
+                for (Disciplina disciplina : disciplineSem2
+                ) {
+                    System.out.println(disciplina.getId_disciplina());
+                    medii2.add(situatieScolaraService.getMediiForDisciplina(s.getId_student(), disciplina.getId_disciplina()).getMedie());
+                }
+            }
+
+            float sum = medii1.stream().reduce(0, Integer::sum);
+            float sum2 = medii2.stream().reduce(0, Integer::sum);
+
+            map.put("1", sum / medii1.size());
+            map.put("2", sum2 / medii2.size());
+
+            return new ResponseEntity<>(map, HttpStatus.OK);
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
+
 }
