@@ -24,4 +24,23 @@ public class UserController {
         }
         return new ResponseEntity<>(role, HttpStatus.OK);
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/user", method = {RequestMethod.POST})
+    public ResponseEntity<?> addUser() {
+        User user=new User();
+        user.setId_student(1);
+        user.setUsername("Buna");
+        user.setPassword("Password");
+        user.setRole("student");
+        userService.addUser(user);
+        System.out.println(user);
+//        User user_db=userService.getUser(133);
+        try {
+
+        } catch (Exception ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
+        }
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
 }

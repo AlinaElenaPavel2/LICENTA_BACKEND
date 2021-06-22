@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -58,5 +59,17 @@ public class UserService {
         } else {
             return userRepository.getProfilePicturePath(-1);
         }
+    }
+
+    public void addUser(User user)
+    {
+        System.out.println(user);
+        userRepository.save(user);
+    }
+
+    public User getUser(int id)
+    {
+        Optional<User> user= userRepository.findById(id);
+        return user.get();
     }
 }

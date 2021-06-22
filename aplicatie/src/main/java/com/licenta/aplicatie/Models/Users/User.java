@@ -1,5 +1,6 @@
 package com.licenta.aplicatie.Models.Users;
 
+import com.licenta.aplicatie.Controller.Users.EncryptionAlg;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,15 +21,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_user;
 
-    @Column(name = "id_student", nullable = false)
+    @Column(name = "id_student")
     private Integer id_student;
 
-    @Column(name = "id_profesor", nullable = false)
+    @Column(name = "id_profesor")
     private Integer id_profesor;
 
     @Column(name = "username", nullable = false)
     private String username;
 
+    @Convert(converter = EncryptionAlg.class)
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -36,7 +38,7 @@ public class User {
     private String role;
 
     @Lob
-    @Column(name = "picture", nullable = false)
+    @Column(name = "picture")
     private String picture;
 
     @Override
