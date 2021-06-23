@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61256e47-d211-4182-a1c7-f14b6115c92c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Users/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Controller/Users/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Models/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Users/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/aplicatie/src/main/java/com/licenta/aplicatie/Service/Users/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +257,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/javase.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JWT/LICENTA_BACKEND" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.19140625" />
     <property name="project.structure.side.proportion" value="0.19286403" />
