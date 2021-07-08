@@ -3,13 +3,9 @@ package com.licenta.aplicatie.Controller.FileStorage;
 import com.licenta.aplicatie.Models.Programa.Disciplina;
 import com.licenta.aplicatie.Service.FileStorage.FileStorageService;
 import com.licenta.aplicatie.Service.FileStorage.UploadFileResponse;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
 import com.licenta.aplicatie.Service.Programa.DisciplinaService;
 import com.licenta.aplicatie.Service.Programa.MaterialeService;
 import com.licenta.aplicatie.Service.Users.UserService;
-//import org.apache.commons.io.FileUtils;
-import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -28,16 +24,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Base64;
+import java.util.List;
 import java.util.regex.Pattern;
+
+
 
 
 @RestController
 @RequestMapping("api/licenta/fileStorage")
 public class FileStorageController {
-    //    private static final Logger logger = LoggerFactory.getLogger(FileStorageController.class);
+
     @Autowired
     private FileStorageService fileStorageService;
 
@@ -60,8 +59,6 @@ public class FileStorageController {
                 .toUriString();
         HttpHeaders headers = new HttpHeaders();
         headers.add("Access-Control-Allow-Credentials", "true");
-//        return new UploadFileResponse(fileName, fileDownloadUri,
-//                file.getContentType(), file.getSize());
         return new ResponseEntity<>(new UploadFileResponse(fileName, fileDownloadUri,
                 file.getContentType(), file.getSize()), headers, HttpStatus.OK);
 
@@ -69,7 +66,6 @@ public class FileStorageController {
 
 
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
-//       String path="/"+disciplina+"/"+tip;
         fileStorageService.setFileStoragePath("/Marketing/Curs");
         System.out.println(fileStorageService.getFileStoragePath());
         String fileName = fileStorageService.storeFile(file);
@@ -103,8 +99,6 @@ public class FileStorageController {
 
     @CrossOrigin
     @PostMapping("/uploadMultipleFiles")
-//    @PostMapping("/disciplina={disciplina}/{tip}/uploadMultipleFiles")
-//    @RequestMapping(value = "/uploadMultipleFiles", produces =MediaType.MULTIPART_FORM_DATA_VALUE, consumes = MediaType.MULTIPART_FORM_DATA_VALUE, method = RequestMethod.POST)
     public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("file") MultipartFile[] files) throws Exception {
         List<UploadFileResponse> list = new ArrayList<>();
         for (MultipartFile multipartFile : Arrays.asList(files)) {
@@ -116,7 +110,8 @@ public class FileStorageController {
 
     @CrossOrigin
     @PostMapping("/disciplina={disciplina}/{componenta}/uploadMultipleFiles")
-    public List<UploadFileResponse> uploadMultipleFilesSecond(@RequestParam("file") MultipartFile[] files, @PathVariable("disciplina") String disciplina, @PathVariable("componenta") String componenta) throws Exception {
+    public List<UploadFileResponse> uploadMultipleFilesSecond(@RequestParam("file") MultipartFile[] files, @PathVariable("disciplina") String disciplina,
+                                                              @PathVariable("componenta") String componenta) throws Exception {
         String[] arr = disciplina.split(" ");
         String path = "";
         StringBuilder dispPath = new StringBuilder();
@@ -127,7 +122,6 @@ public class FileStorageController {
             }
             path = "/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
         }
-//        String path = "/" + dispPath.substring(0, dispPath.length() - 1) + "/" + componenta;
         path = "/" + disciplina + "/" + componenta + "/";
         System.out.println(path);
         List<UploadFileResponse> list = new ArrayList<>();
@@ -141,18 +135,14 @@ public class FileStorageController {
 
     @GetMapping("/{fileName:.+}")
     public ResponseEntity<Resource> openFile(@PathVariable String fileName, HttpServletRequest request) throws Exception {
-        // Load file as Resource
         Resource resource = fileStorageService.loadFileAsResource(fileName);
-        // Try to determine file's content type
         String contentType = null;
         try {
             contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
         } catch (IOException ex) {
-//            logger.info("Could not determine file type.");
+
             System.out.println("Could not determine file type.");
         }
-
-        // Fallback to the default content type if type could not be determined
         if (contentType == null) {
             contentType = "application/octet-stream";
         }
@@ -166,35 +156,28 @@ public class FileStorageController {
     @CrossOrigin
     @GetMapping("/{disciplina}/{tip}/{fileName}")
     public ResponseEntity<Resource> openFileForGivenPath(@PathVariable("fileName") String fileName, @PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
-        // Load file as Resource
         String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
         System.out.println(filePath);
         Resource resource = fileStorageService.loadFileAsResourceGivenPath(fileName, filePath);
-        // Try to determine file's content type
         String contentType = null;
         try {
             contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
         } catch (IOException ex) {
-//            logger.info("Could not determine file type.");
             System.out.println("Could not determine file type.");
         }
-
-        // Fallback to the default content type if type could not be determined
         if (contentType == null) {
             contentType = "application/octet-stream";
         }
-
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
                 .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
                 .body(resource);
     }
+
     @CrossOrigin
     @GetMapping("/{disciplina}/{tip}/{fileName}/description")
     public ResponseEntity<?> getDescription(@PathVariable("fileName") String fileName, @PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
-        // Load file as Resource
         String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
-
         Resource resource = fileStorageService.loadFileAsResourceGivenPath(fileName, filePath);
         try {
             String dbPath = fileStorageService.getFileStoragePath();
@@ -209,42 +192,22 @@ public class FileStorageController {
         {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
-        // Try to determine file's content type
-//        String contentType = null;
-//        try {
-//            contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
-//        } catch (IOException ex) {
-////            logger.info("Could not determine file type.");
-//            System.out.println("Could not determine file type.");
-//        }
-//
-//        // Fallback to the default content type if type could not be determined
-//        if (contentType == null) {
-//            contentType = "application/octet-stream";
-//        }
-//
-//        return ResponseEntity.ok()
-//                .contentType(MediaType.parseMediaType(contentType))
-//                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
-//                .body(resource);
     }
+
     public String getDbFilePath(String path)
     {
-//        System.out.println("-----------");
         String[] arr=path.split(Pattern.quote(File.separator));
-        return arr[5]+"/"+arr[6]+"/"+arr[7]+"/"+arr[8]+"/"+arr[9]+"/"+arr[10]+"/"+arr[11]+"/";
+        return arr[6]+"/"+arr[7]+"/"+arr[8]+"/"+arr[9]+"/"+arr[10]+"/"+arr[11]+"/"+arr[12]+"/";
     }
 
     @CrossOrigin
     @GetMapping("/{disciplina}/{tip}")
     public ResponseEntity<?> getFile(@PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
         try {
-//            String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
             String filePath = "\\" + getPath(disciplina) + "\\" + tip + "\\";
             System.out.println(filePath);
             List<String> files = fileStorageService.getAllFilesFromDirectory(filePath);
             List<String> filesUri = new ArrayList<>();
-//            System.out.println(files.size());
             if(files.size()>0) {
                 for (String file : files
                 ) {
@@ -257,23 +220,19 @@ public class FileStorageController {
         }
 
     }
+
     @CrossOrigin
     @GetMapping("/{disciplina}/{tip}/descriptions")
     public ResponseEntity<?> getFilesDescriptions(@PathVariable("disciplina") String disciplina, @PathVariable("tip") String tip, HttpServletRequest request) throws Exception {
         try {
             String filePath = "/" + getPath(disciplina) + "/" + tip + "/";
-            System.out.println(filePath);
-
             List<String> files = fileStorageService.getAllFilesFromDirectory(filePath);
             List<String> fileDescription = new ArrayList<>();
-            System.out.println(files.size());
             if(files.size()>0) {
                 for (String file : files
                 ) {
 
                     String dbPath = fileStorageService.getFileStoragePath()+"\\" + getPath(disciplina) + "\\" + tip ;
-                    System.out.println(dbPath);
-                    System.out.println(getDbFilePath(dbPath) + file);
                     Disciplina discip = disciplinaService.getDisciplinaByTitlu(disciplina);
                     String description = materialeService.getDescription(discip.getId_disciplina(), tip, getDbFilePath(dbPath) + file);
                     fileDescription.add(description);
@@ -285,6 +244,7 @@ public class FileStorageController {
         }
 
     }
+
     public String getPath(String disciplina) {
         StringBuilder filePath = new StringBuilder();
         String[] arr = disciplina.split(" ");
@@ -303,19 +263,14 @@ public class FileStorageController {
 
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request) throws Exception {
-        // Load file as Resource
         Resource resource = fileStorageService.loadFileAsResource(fileName);
         System.out.println(resource.getFile().getAbsolutePath());
-        // Try to determine file's content type
         String contentType = null;
         try {
             contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
         } catch (IOException ex) {
-//            logger.info("Could not determine file type.");
             System.out.println("Could not determine file type.");
         }
-
-        // Fallback to the default content type if type could not be determined
         if (contentType == null) {
             contentType = "application/octet-stream";
         }
@@ -366,7 +321,7 @@ public class FileStorageController {
 
     @CrossOrigin
     @PostMapping("/uploadProfilePicture/user/role={role}/id={id}")
-    public ResponseEntity<?> uploadPicture2(@PathVariable("id") int id, @PathVariable("role") String role, @RequestBody String imgBase64) throws Exception {
+    public ResponseEntity<?> uploadPictureByRole(@PathVariable("id") int id, @PathVariable("role") String role, @RequestBody String imgBase64) throws Exception {
         try {
             int user_id = userService.getUserIdByRole(id, role);
             String pathname = "aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";
@@ -388,7 +343,7 @@ public class FileStorageController {
 
     @CrossOrigin
     @RequestMapping(value = "/profilePicture/user/role={role}/id={id}", method = {RequestMethod.GET})
-    public ResponseEntity<?> getProfilePicture2(@PathVariable("id") int id, @PathVariable("role") String role) throws Exception {
+    public ResponseEntity<?> getProfilePictureByRole(@PathVariable("id") int id, @PathVariable("role") String role) throws Exception {
         try {
             int user_id = userService.getUserIdByRole(id, role);
             String imagePath = "aplicatie/src/main/resources/ProfilePictures/user_" + user_id + ".png";

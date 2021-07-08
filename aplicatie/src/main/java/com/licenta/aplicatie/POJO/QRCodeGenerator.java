@@ -8,11 +8,6 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 import com.google.zxing.*;
-//import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
-//import com.google.zxing.client.j2se.MatrixToImageWriter;
-//import com.google.zxing.common.BitMatrix;
-//import com.google.zxing.common.HybridBinarizer;
-//import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.client.j2se.*;
 import com.google.zxing.common.*;
 import com.google.zxing.qrcode.*;
@@ -20,6 +15,7 @@ import javax.imageio.ImageIO;
 import com.google.zxing.BarcodeFormat;
 
 public class QRCodeGenerator {
+
     public static void generateQRCodeImage(String text, int width, int height, String filePath)
             throws WriterException, IOException {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();

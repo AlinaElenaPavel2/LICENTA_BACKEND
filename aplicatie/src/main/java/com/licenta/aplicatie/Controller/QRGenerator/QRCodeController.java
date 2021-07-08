@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,43 +49,17 @@ public class QRCodeController {
 
     }
 
-
-    //    @CrossOrigin
-//    @RequestMapping(value = "/generate/materie={materie}/grupa={grupa}/laborator={laborator}", method = {RequestMethod.POST})
-//    public ResponseEntity<?> download2(@PathVariable("materie") String materie, @PathVariable("grupa") String grupa, @PathVariable("laborator") Integer laborator) throws Exception {
-//        List<Student> studenti = studentService.findStudentsByGrupa(grupa);
-//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-//        LocalDateTime now = LocalDateTime.now();
-//        String date = dtf.format(now);
-//        String[] arr = date.split(" ");
-//        String[] date_sub = arr[0].split("/");
-//        String data = date_sub[0] + "_" + date_sub[1] + "_" + date_sub[2];
-////        for (Student student:studenti
-////             ) {
-////            String link = "http://localhost:4200/university/course/"+materie+"/student/"+student.getNume()+"/labo/rator/"+laborator+"/date/"+data+"/ora/"+arr[1]+"/present";
-////            QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH+"_"+materie+"_"+student.getNume()+"_laborator_"+laborator+".png");
-////            sendEmailService.sendEmailWithAttachment(student.getEmail(),QR_CODE_IMAGE_PATH+"_"+materie+"_"+student.getNume()+"_laborator_"+laborator+".png");
-////        }
-//        String link = "http://localhost:4200/university/course/" + materie + "/student/" + "Sosea Sorina" + "/laborator/" + laborator + "/date/" + data + "/ora/" + arr[1] + "/present";
-//        QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + ".png");
-//        sendEmailService.sendEmailWithAttachment("alina_pavel98@yahoo.com", QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + ".png","Sosea Sorina",laborator,materie);
-//        return new ResponseEntity<>(studenti, HttpStatus.OK);
-//
-//    }
     @CrossOrigin
     @RequestMapping(value = "/generate/materie={materie}/grupa={grupa}/laborator={laborator}", method = {RequestMethod.POST})
     public ResponseEntity<?> download2(@PathVariable("materie") String materie, @PathVariable("grupa") String grupa, @PathVariable("laborator") Integer laborator) throws Exception {
         List<Student> studenti = studentService.findStudentsByGrupa(grupa);
         List<Student> studentiRecuperari = new ArrayList<>();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String date = dtf.format(now);
-        String[] arr = date.split(" ");
-        String[] date_sub = arr[0].split("/");
-        String data = date_sub[0] + "_" + date_sub[1] + "_" + date_sub[2];
+        long miliseconds=LocalDateTime.parse(date.replace( " " , "T" ).replace( "/" , "-")).atZone(ZoneId.of( "Europe/Bucharest" ) ).toInstant().toEpochMilli();
         Disciplina disciplina = disciplinaService.getDisciplinaByTitlu(materie);
-        System.out.println(date_sub[0] + "-" + date_sub[1] + "-" + date_sub[2]);
-        List<Recuperare> recuperari = recuperareService.cereriAcceptate(disciplina.getId_disciplina(), grupa, "2021-06-28", "da");
+        List<Recuperare> recuperari = recuperareService.cereriAcceptate(disciplina.getId_disciplina(), grupa, date.split(" ")[0], "da");
         for (Recuperare recuperare : recuperari
         ) {
             Student student = studentService.getStudentById(recuperare.getId_student());
@@ -93,23 +68,24 @@ public class QRCodeController {
 //
 //        for (Student student : studenti
 //        ) {
-//            String link = "http://localhost:4200/university/course/" + materie + "/student/" + student.getNume() + "/labo/rator/" + laborator + "/date/" + data + "/ora/" + arr[1] + "/present";
+//            String link = "http://localhost:4200/university/course/" + materie + "/student/" + student.getNume() + "/labo/rator/" + laborator +  "/prezent" + miliseconds;
 //            QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH + "_" + materie + "_" + student.getNume() + "_laborator_" + laborator +"_recuperare"+ ".png");
 //            sendEmailService.sendEmailWithAttachment(student.getEmail(), QR_CODE_IMAGE_PATH + "_" + materie + "_" + student.getNume() + "_laborator_" + laborator + ".png", student.getNume(), laborator, materie);
 //        }
 //        for (Student student : studentiRecuperari) {
-//            String link = "http://localhost:4200/university/course/" + materie + "/student/" + student.getNume() + "/labo/rator/" + laborator + "/date/" + data + "/ora/" + arr[1] + "/recuperare";
+//            String link = "http://localhost:4200/university/course/" + materie + "/student/" + student.getNume() + "/labo/rator/" + laborator + "/recuperare" + miliseconds;
 //            QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH + "_" + materie + "_" + student.getNume() + "_laborator_" + laborator + ".png");
 //            sendEmailService.sendEmailWithAttachment(student.getEmail(), QR_CODE_IMAGE_PATH + "_" + materie + "_" + student.getNume() + "_laborator_" + laborator + ".png", student.getNume(), laborator, materie);
 //        }
-        String link = "http://localhost:4200/university/course/" + materie + "/student/" + "Sosea Sorina" + "/laborator/" + laborator + "/date/" + data + "/ora/" + arr[1] + "/present";
-        QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + ".png");
-        String linkRecuperare = "http://localhost:4200/university/course/" + materie + "/student/" + "Sosea Sorina" + "/laborator/" + laborator + "/date/" + data + "/ora/" + arr[1] + "/recuperare";
-        QRCodeGenerator.generateQRCodeImage(linkRecuperare, 650, 650, QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + "_recuperare" + ".png");
-        sendEmailService.sendEmailWithAttachment("alina_pavel98@yahoo.com", QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + ".png", "Sosea Sorina", laborator, materie);
-        sendEmailService.sendEmailWithAttachment("alina_pavel98@yahoo.com", QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + "_recuperare" + ".png", "Sosea Sorina", laborator, materie);
         studenti.addAll(studentiRecuperari);
-        return new ResponseEntity<>(studenti, HttpStatus.OK);
+        String link = "http://localhost:4200/university/course/" + materie + "/student/" + "Sosea Sorina" + "/laborator/" + laborator + "/prezent/"+miliseconds;
+        QRCodeGenerator.generateQRCodeImage(link, 650, 650, QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + ".png");
+        sendEmailService.sendEmailWithAttachment("alina_pavel98@yahoo.com", QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + ".png", "Sosea Sorina", laborator, materie);
+//        String linkRecuperare = "http://localhost:4200/university/course/" + materie + "/student/" + "Sosea Sorina" + "/laborator/" + laborator + "/recuperare"+miliseconds;
+//        QRCodeGenerator.generateQRCodeImage(linkRecuperare, 650, 650, QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + "_recuperare" + ".png");
+//        sendEmailService.sendEmailWithAttachment("alina_pavel98@yahoo.com", QR_CODE_IMAGE_PATH + "_" + materie + "_" + "Sosea Sorina" + "_laborator_" + laborator + "_recuperare" + ".png", "Sosea Sorina", laborator, materie);
+
+        return new ResponseEntity<>( HttpStatus.OK);
 
     }
 
